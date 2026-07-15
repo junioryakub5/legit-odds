@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 
@@ -68,6 +70,10 @@ export default function Footer() {
           Premium football predictions for serious bettors
         </p>
 
+        <style>{`
+          .footer-link { color: #475569; transition: color 0.2s; font-size: 0.75rem; font-weight: 500; text-decoration: none; }
+          .footer-link:hover { color: #f59e0b; }
+        `}</style>
         <div className="flex flex-wrap items-center justify-center gap-6 mb-8">
           {[
             { href: "/", label: "Home" },
@@ -79,10 +85,7 @@ export default function Footer() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-xs font-medium transition-colors duration-200"
-              style={{ color: "#475569" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#f59e0b")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#475569")}
+              className="footer-link"
             >
               {link.label}
             </Link>
