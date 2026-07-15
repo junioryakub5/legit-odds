@@ -45,7 +45,7 @@ export default function UnlockPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen pt-24 pb-16 relative z-10" style={{ background: "#09090b" }}>
+      <main className="min-h-screen pt-24 pb-16 relative z-10" style={{ background: "#050a18" }}>
 
         {/* Decorative orbs */}
         <div className="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden>
@@ -128,16 +128,16 @@ export default function UnlockPage() {
               {/* Access Info Banner */}
               <div
                 className="rounded-2xl p-4 mb-6 flex items-center gap-4"
-                style={{ background: "rgba(16,185,129,0.06)", border: "1px solid rgba(16,185,129,0.15)" }}
+                style={{ background: "rgba(245,158,11,0.06)", border: "1px solid rgba(245,158,11,0.15)" }}
               >
                 <div
                   className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: "rgba(16,185,129,0.12)", border: "1px solid rgba(16,185,129,0.2)" }}
+                  style={{ background: "rgba(245,158,11,0.12)", border: "1px solid rgba(245,158,11,0.2)" }}
                 >
-                  <Zap size={17} style={{ color: "#10b981" }} />
+                  <Zap size={17} style={{ color: "#f59e0b" }} />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold" style={{ color: "#10b981" }}>
+                  <p className="text-sm font-semibold" style={{ color: "#f59e0b" }}>
                     Permanent Access Granted
                   </p>
                   <p className="text-xs mt-0.5" style={{ color: "#52525b" }}>
@@ -192,7 +192,7 @@ export default function UnlockPage() {
                   {/* Prediction content box */}
                   <div
                     className="rounded-xl p-5 mb-4"
-                    style={{ background: "#1a1a24", border: "1px solid rgba(255,255,255,0.06)" }}
+                    style={{ background: "#0f1f38", border: "1px solid rgba(255,255,255,0.06)" }}
                   >
                     <div className="flex items-center justify-between mb-4">
                       <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#52525b" }}>
@@ -202,7 +202,7 @@ export default function UnlockPage() {
                         onClick={() => copyToClipboard(data.prediction.content || "")}
                         className="flex items-center gap-1.5 text-xs transition-colors px-3 py-1.5 rounded-lg"
                         style={{
-                          color: copied ? "#10b981" : "#a1a1aa",
+                          color: copied ? "#f59e0b" : "#a1a1aa",
                           background: "rgba(255,255,255,0.04)",
                           border: "1px solid rgba(255,255,255,0.06)",
                         }}

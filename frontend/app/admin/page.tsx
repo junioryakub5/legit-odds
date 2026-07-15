@@ -36,10 +36,10 @@ function StatusBadge({ status }: { status: string }) {
   const styles: Record<string, React.CSSProperties> = {
     active: { background: "rgba(245,158,11,0.12)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.25)" },
     completed: { background: "rgba(99,102,241,0.12)", color: "#818cf8", border: "1px solid rgba(99,102,241,0.25)" },
-    success: { background: "rgba(16,185,129,0.12)", color: "#10b981", border: "1px solid rgba(16,185,129,0.25)" },
+    success: { background: "rgba(245,158,11,0.12)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.25)" },
     pending: { background: "rgba(245,158,11,0.12)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.25)" },
     failed: { background: "rgba(239,68,68,0.12)", color: "#ef4444", border: "1px solid rgba(239,68,68,0.25)" },
-    win: { background: "rgba(16,185,129,0.12)", color: "#10b981", border: "1px solid rgba(16,185,129,0.25)" },
+    win: { background: "rgba(245,158,11,0.12)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.25)" },
     loss: { background: "rgba(239,68,68,0.12)", color: "#ef4444", border: "1px solid rgba(239,68,68,0.25)" },
   };
   const fallback: React.CSSProperties = {
@@ -87,7 +87,7 @@ function Pagination({ page, pages, onPage }: { page: number; pages: number; onPa
             className="w-9 h-9 rounded-xl text-sm font-semibold transition-colors"
             style={
               n === page
-                ? { background: "linear-gradient(135deg,#16a34a,#10b981)", color: "#ffffff", border: "none", boxShadow: "0 2px 12px rgba(22,163,74,0.4)" }
+                ? { background: "linear-gradient(135deg,#f59e0b,#f59e0b)", color: "#ffffff", border: "none", boxShadow: "0 2px 12px rgba(245,158,11,0.4)" }
                 : { background: "rgba(255,255,255,0.03)", color: "#52525b", border: "1px solid rgba(255,255,255,0.07)" }
             }
           >
@@ -130,7 +130,7 @@ function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
   return (
     <div
       className="min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden"
-      style={{ background: "#09090b" }}
+      style={{ background: "#050a18" }}
     >
       {/* ── Background atmosphere ── */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
@@ -138,20 +138,20 @@ function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
         <div style={{
           position: "absolute", top: "-15%", right: "-10%",
           width: "600px", height: "600px", borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(22,163,74,0.15) 0%, rgba(22,163,74,0.04) 50%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(245,158,11,0.15) 0%, rgba(245,158,11,0.04) 50%, transparent 70%)",
           filter: "blur(60px)",
         }} />
         {/* Bottom-left orb */}
         <div style={{
           position: "absolute", bottom: "-10%", left: "-10%",
           width: "500px", height: "500px", borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%)",
           filter: "blur(50px)",
         }} />
         {/* Dot grid */}
         <div style={{
           position: "absolute", inset: 0,
-          backgroundImage: "radial-gradient(circle, rgba(22,163,74,0.06) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(245,158,11,0.06) 1px, transparent 1px)",
           backgroundSize: "32px 32px",
           maskImage: "radial-gradient(ellipse 70% 70% at 50% 50%, black 20%, transparent 100%)",
         }} />
@@ -163,7 +163,7 @@ function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
         <div
           style={{
             background: "rgba(17,17,23,0.85)",
-            border: "1px solid rgba(22,163,74,0.15)",
+            border: "1px solid rgba(245,158,11,0.15)",
             borderRadius: "24px",
             boxShadow: "0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04) inset",
             backdropFilter: "blur(20px)",
@@ -173,7 +173,7 @@ function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
           {/* Top green accent bar */}
           <div style={{
             height: "3px",
-            background: "linear-gradient(90deg, #16a34a, #10b981, #34d399)",
+            background: "linear-gradient(90deg, #f59e0b, #f59e0b, #fcd34d)",
           }} />
 
           <div className="p-8">
@@ -184,10 +184,10 @@ function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
                 style={{
                   width: "72px", height: "72px",
                   borderRadius: "20px",
-                  background: "rgba(22,163,74,0.1)",
-                  border: "1px solid rgba(22,163,74,0.25)",
+                  background: "rgba(245,158,11,0.1)",
+                  border: "1px solid rgba(245,158,11,0.25)",
                   display: "flex", alignItems: "center", justifyContent: "center",
-                  boxShadow: "0 0 40px rgba(22,163,74,0.15)",
+                  boxShadow: "0 0 40px rgba(245,158,11,0.15)",
                   overflow: "hidden",
                 }}
               >
@@ -197,7 +197,7 @@ function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
               <div className="text-center">
                 <div
                   style={{
-                    fontFamily: "'Sora', sans-serif",
+                    fontFamily: "'Outfit', sans-serif",
                     fontWeight: 900,
                     fontSize: "1.6rem",
                     letterSpacing: "-0.03em",
@@ -206,7 +206,7 @@ function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
                 >
                   <span style={{ color: "#f4f4f5" }}>365</span>
                   <span style={{
-                    background: "linear-gradient(135deg, #16a34a, #10b981)",
+                    background: "linear-gradient(135deg, #f59e0b, #f59e0b)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
@@ -215,9 +215,9 @@ function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
                 <div
                   className="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full"
                   style={{
-                    background: "rgba(22,163,74,0.08)",
-                    border: "1px solid rgba(22,163,74,0.2)",
-                    color: "#16a34a",
+                    background: "rgba(245,158,11,0.08)",
+                    border: "1px solid rgba(245,158,11,0.2)",
+                    color: "#f59e0b",
                     fontSize: "0.6rem",
                     fontWeight: 700,
                     letterSpacing: "0.15em",
@@ -226,8 +226,8 @@ function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
                 >
                   <span style={{
                     width: "5px", height: "5px", borderRadius: "50%",
-                    background: "#16a34a",
-                    boxShadow: "0 0 6px #16a34a",
+                    background: "#f59e0b",
+                    boxShadow: "0 0 6px #f59e0b",
                     display: "inline-block",
                   }} />
                   Admin Portal
@@ -240,7 +240,7 @@ function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
               <h1
                 style={{
                   color: "#f4f4f5",
-                  fontFamily: "'Sora', sans-serif",
+                  fontFamily: "'Outfit', sans-serif",
                   fontWeight: 800,
                   fontSize: "1.3rem",
                   letterSpacing: "-0.02em",
@@ -259,7 +259,7 @@ function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
                 <label
                   className="block mb-2"
                   style={{
-                    color: "rgba(22,163,74,0.9)",
+                    color: "rgba(245,158,11,0.9)",
                     fontSize: "0.65rem",
                     fontWeight: 700,
                     letterSpacing: "0.12em",
@@ -283,7 +283,7 @@ function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
                     onClick={() => setShow(!show)}
                     className="absolute right-3 top-1/2 -translate-y-1/2 transition-colors"
                     style={{ color: "#52525b" }}
-                    onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#16a34a")}
+                    onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#f59e0b")}
                     onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "#52525b")}
                   >
                     {show ? <EyeOff size={16} /> : <Eye size={16} />}
@@ -311,14 +311,14 @@ function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
                 className="w-full flex items-center justify-center gap-2 py-3.5 rounded-2xl font-bold text-sm transition-all duration-300"
                 style={{
                   background: loading
-                    ? "rgba(22,163,74,0.4)"
-                    : "linear-gradient(135deg, #16a34a 0%, #10b981 100%)",
+                    ? "rgba(245,158,11,0.4)"
+                    : "linear-gradient(135deg, #f59e0b 0%, #f59e0b 100%)",
                   color: "#ffffff",
                   letterSpacing: "0.03em",
-                  boxShadow: loading ? "none" : "0 4px 24px rgba(22,163,74,0.35)",
+                  boxShadow: loading ? "none" : "0 4px 24px rgba(245,158,11,0.35)",
                 }}
-                onMouseEnter={e => { if (!loading) (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 32px rgba(22,163,74,0.5)"; }}
-                onMouseLeave={e => { if (!loading) (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 24px rgba(22,163,74,0.35)"; }}
+                onMouseEnter={e => { if (!loading) (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 32px rgba(245,158,11,0.5)"; }}
+                onMouseLeave={e => { if (!loading) (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 24px rgba(245,158,11,0.35)"; }}
               >
                 {loading ? <Loader2 size={16} className="animate-spin" /> : null}
                 {loading ? "Verifying..." : "Access Dashboard"}
@@ -353,7 +353,7 @@ function OverviewSection({ token }: { token: string }) {
 
   if (loading) return (
     <div className="flex items-center justify-center py-24">
-      <Loader2 size={32} className="animate-spin" style={{ color: "#16a34a" }} />
+      <Loader2 size={32} className="animate-spin" style={{ color: "#f59e0b" }} />
     </div>
   );
   if (!stats) return (
@@ -363,10 +363,10 @@ function OverviewSection({ token }: { token: string }) {
   );
 
   const statCards = [
-    { label: "Total Predictions", value: stats.totalSlips, icon: FileText, iconColor: "#16a34a", iconBg: "rgba(22,163,74,0.1)", iconBorder: "rgba(22,163,74,0.2)" },
-    { label: "Active Slips", value: stats.activeSlips, icon: Activity, iconColor: "#10b981", iconBg: "rgba(16,185,129,0.1)", iconBorder: "rgba(16,185,129,0.2)" },
-    { label: "Total Revenue", value: `GHS ${stats.totalRevenue.toFixed(2)}`, icon: DollarSign, iconColor: "#34d399", iconBg: "rgba(52,211,153,0.1)", iconBorder: "rgba(52,211,153,0.2)" },
-    { label: "Win Rate", value: `${stats.totalSales > 0 ? Math.round((stats.completedSlips / stats.totalSlips) * 100) : 0}%`, icon: TrendingUp, iconColor: "#16a34a", iconBg: "rgba(22,163,74,0.1)", iconBorder: "rgba(22,163,74,0.2)" },
+    { label: "Total Predictions", value: stats.totalSlips, icon: FileText, iconColor: "#f59e0b", iconBg: "rgba(245,158,11,0.1)", iconBorder: "rgba(245,158,11,0.2)" },
+    { label: "Active Slips", value: stats.activeSlips, icon: Activity, iconColor: "#f59e0b", iconBg: "rgba(245,158,11,0.1)", iconBorder: "rgba(245,158,11,0.2)" },
+    { label: "Total Revenue", value: `GHS ${stats.totalRevenue.toFixed(2)}`, icon: DollarSign, iconColor: "#fcd34d", iconBg: "rgba(251,191,36,0.1)", iconBorder: "rgba(251,191,36,0.2)" },
+    { label: "Win Rate", value: `${stats.totalSales > 0 ? Math.round((stats.completedSlips / stats.totalSlips) * 100) : 0}%`, icon: TrendingUp, iconColor: "#f59e0b", iconBg: "rgba(245,158,11,0.1)", iconBorder: "rgba(245,158,11,0.2)" },
   ];
 
   return (
@@ -397,7 +397,7 @@ function OverviewSection({ token }: { token: string }) {
             </div>
             <div
               style={{
-                fontFamily: "'Sora', sans-serif",
+                fontFamily: "'Outfit', sans-serif",
                 fontWeight: 800,
                 fontSize: "1.6rem",
                 color: s.iconColor,
@@ -418,18 +418,18 @@ function OverviewSection({ token }: { token: string }) {
       {/* Revenue breakdown row: Ghana + Nigeria */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Ghana Payments */}
-        <div style={{ background: "rgba(17,17,23,0.8)", border: "1px solid rgba(22,163,74,0.12)", borderRadius: "16px", padding: "1.25rem", backdropFilter: "blur(10px)" }}>
+        <div style={{ background: "rgba(17,17,23,0.8)", border: "1px solid rgba(245,158,11,0.12)", borderRadius: "16px", padding: "1.25rem", backdropFilter: "blur(10px)" }}>
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <div style={{ width: 32, height: 32, borderRadius: 10, background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <Globe2 size={16} style={{ color: "#10b981" }} />
+              <div style={{ width: 32, height: 32, borderRadius: 10, background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <Globe2 size={16} style={{ color: "#f59e0b" }} />
               </div>
               <h3 style={{ color: "#f4f4f5", fontWeight: 700, fontSize: "0.9rem", fontFamily: "'Sora',sans-serif" }}>🇬🇭 Ghana (Paystack)</h3>
             </div>
           </div>
           <div className="flex justify-between text-sm mb-3">
             <span style={{ color: "#52525b" }}>Revenue</span>
-            <span style={{ fontWeight: 800, color: "#10b981", fontFamily: "'Sora',sans-serif", fontSize: "1rem" }}>GHS {(stats.ghanaRevenue ?? stats.totalRevenue).toFixed(2)}</span>
+            <span style={{ fontWeight: 800, color: "#f59e0b", fontFamily: "'Sora',sans-serif", fontSize: "1rem" }}>GHS {(stats.ghanaRevenue ?? stats.totalRevenue).toFixed(2)}</span>
           </div>
           <div style={{ height: "1px", background: "rgba(255,255,255,0.05)", marginBottom: "0.75rem" }} />
           <div className="flex justify-between text-sm">
@@ -439,18 +439,18 @@ function OverviewSection({ token }: { token: string }) {
         </div>
 
         {/* Nigeria Payments */}
-        <div style={{ background: "rgba(17,17,23,0.8)", border: "1px solid rgba(16,185,129,0.12)", borderRadius: "16px", padding: "1.25rem", backdropFilter: "blur(10px)" }}>
+        <div style={{ background: "rgba(17,17,23,0.8)", border: "1px solid rgba(245,158,11,0.12)", borderRadius: "16px", padding: "1.25rem", backdropFilter: "blur(10px)" }}>
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <div style={{ width: 32, height: 32, borderRadius: 10, background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <Globe2 size={16} style={{ color: "#34d399" }} />
+              <div style={{ width: 32, height: 32, borderRadius: 10, background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <Globe2 size={16} style={{ color: "#fcd34d" }} />
               </div>
               <h3 style={{ color: "#f4f4f5", fontWeight: 700, fontSize: "0.9rem", fontFamily: "'Sora',sans-serif" }}>🇳🇬 Nigeria (Flutterwave)</h3>
             </div>
           </div>
           <div className="flex justify-between text-sm mb-3">
             <span style={{ color: "#52525b" }}>Revenue</span>
-            <span style={{ fontWeight: 800, color: "#34d399", fontFamily: "'Sora',sans-serif", fontSize: "1rem" }}>NGN {(stats.nigeriaRevenue ?? 0).toLocaleString()}</span>
+            <span style={{ fontWeight: 800, color: "#fcd34d", fontFamily: "'Sora',sans-serif", fontSize: "1rem" }}>NGN {(stats.nigeriaRevenue ?? 0).toLocaleString()}</span>
           </div>
           <div style={{ height: "1px", background: "rgba(255,255,255,0.05)", marginBottom: "0.75rem" }} />
           <div className="flex justify-between text-sm">
@@ -464,7 +464,7 @@ function OverviewSection({ token }: { token: string }) {
       <div
         className="rounded-2xl overflow-hidden"
         style={{
-          background: "#111117",
+          background: "#0a1628",
           border: "1px solid rgba(255,255,255,0.06)",
         }}
       >
@@ -497,9 +497,9 @@ function OverviewSection({ token }: { token: string }) {
                   <div
                     className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
                     style={{
-                      background: "rgba(22,163,74,0.12)",
-                      color: "#16a34a",
-                      border: "1px solid rgba(22,163,74,0.25)",
+                      background: "rgba(245,158,11,0.12)",
+                      color: "#f59e0b",
+                      border: "1px solid rgba(245,158,11,0.25)",
                     }}
                   >
                     {act.email[0].toUpperCase()}
@@ -516,7 +516,7 @@ function OverviewSection({ token }: { token: string }) {
                 <div className="text-right">
                   <p
                     className="text-sm font-bold"
-                    style={{ color: act.status === "success" ? "#10b981" : "#ef4444" }}
+                    style={{ color: act.status === "success" ? "#f59e0b" : "#ef4444" }}
                   >
                     {act.currency} {act.amount}
                   </p>
@@ -620,7 +620,7 @@ function SlipModal({
       <div
         className="relative w-full max-w-2xl rounded-2xl overflow-y-auto max-h-[90vh]"
         style={{
-          background: "#111117",
+          background: "#0a1628",
           border: "1px solid rgba(255,255,255,0.08)",
         }}
         onClick={(e) => e.stopPropagation()}
@@ -629,13 +629,13 @@ function SlipModal({
         <div
           className="flex items-center justify-between px-6 py-4 sticky top-0 z-10"
           style={{
-            background: "#111117",
+            background: "#0a1628",
             borderBottom: "1px solid rgba(255,255,255,0.07)",
           }}
         >
           <h2
             className="font-bold text-lg"
-            style={{ color: "#f4f4f5", fontFamily: "'Sora', sans-serif" }}
+            style={{ color: "#f4f4f5", fontFamily: "'Outfit', sans-serif" }}
           >
             {editing ? "Edit Slip" : "Create Slip"}
           </h2>
@@ -941,15 +941,15 @@ function SlipModal({
             <div
               className="rounded-xl p-4 space-y-3"
               style={{
-                background: "rgba(16,185,129,0.05)",
-                border: "1px solid rgba(16,185,129,0.18)",
+                background: "rgba(245,158,11,0.05)",
+                border: "1px solid rgba(245,158,11,0.18)",
               }}
             >
               <label
                 className="flex items-center gap-2 text-xs font-semibold"
-                style={{ color: "#10b981" }}
+                style={{ color: "#f59e0b" }}
               >
-                <CheckCircle size={14} style={{ color: "#10b981" }} />
+                <CheckCircle size={14} style={{ color: "#f59e0b" }} />
                 Proof Image{" "}
                 <span style={{ color: "#52525b", fontWeight: 400 }}>(result screenshot shown in History)</span>
               </label>
@@ -960,9 +960,9 @@ function SlipModal({
                   disabled={uploadingProof}
                   className="flex items-center gap-2 text-sm px-3 py-2 rounded-lg font-semibold transition-colors disabled:opacity-60 w-full justify-center"
                   style={{
-                    background: "rgba(16,185,129,0.12)",
-                    border: "1px solid rgba(16,185,129,0.25)",
-                    color: "#34d399",
+                    background: "rgba(245,158,11,0.12)",
+                    border: "1px solid rgba(245,158,11,0.25)",
+                    color: "#fcd34d",
                   }}
                 >
                   <Upload size={14} />
@@ -982,7 +982,7 @@ function SlipModal({
                 </p>
               )}
               {proofPreview && !proofUploadError && (
-                <p className="text-xs" style={{ color: "#10b981" }}>
+                <p className="text-xs" style={{ color: "#f59e0b" }}>
                   ✅ Uploaded
                 </p>
               )}
@@ -998,7 +998,7 @@ function SlipModal({
                     src={proofPreview}
                     alt="Proof preview"
                     className="h-28 rounded-xl object-cover"
-                    style={{ border: "1px solid rgba(16,185,129,0.3)", background: "#0d0d10" }}
+                    style={{ border: "1px solid rgba(245,158,11,0.3)", background: "#0d0d10" }}
                   />
                   <button
                     type="button"
@@ -1132,7 +1132,7 @@ function ManageSlipsSection({ token }: { token: string }) {
           className={`fixed top-4 right-4 z-[100] flex items-center gap-2.5 px-4 py-3 rounded-xl shadow-lg text-sm font-medium`}
           style={
             toast.type === "ok"
-              ? { background: "rgba(16,185,129,0.15)", border: "1px solid rgba(16,185,129,0.3)", color: "#10b981" }
+              ? { background: "rgba(245,158,11,0.15)", border: "1px solid rgba(245,158,11,0.3)", color: "#f59e0b" }
               : { background: "rgba(239,68,68,0.15)", border: "1px solid rgba(239,68,68,0.3)", color: "#ef4444" }
           }
         >
@@ -1162,7 +1162,7 @@ function ManageSlipsSection({ token }: { token: string }) {
           {/* Filter pills */}
           <div
             className="flex items-center gap-1 p-1 rounded-xl"
-            style={{ background: "#1a1a24", border: "1px solid rgba(255,255,255,0.07)" }}
+            style={{ background: "#0f1f38", border: "1px solid rgba(255,255,255,0.07)" }}
           >
             {(["all", "active", "completed"] as const).map((f) => (
               <button
@@ -1189,7 +1189,7 @@ function ManageSlipsSection({ token }: { token: string }) {
       <div
         className="admin-card overflow-hidden"
         style={{
-          background: "#111117",
+          background: "#0a1628",
           border: "1px solid rgba(255,255,255,0.06)",
           borderRadius: "16px",
         }}
@@ -1222,7 +1222,7 @@ function ManageSlipsSection({ token }: { token: string }) {
                   key={slip._id}
                   className="px-4 py-4 flex items-center gap-3"
                   style={{
-                    background: idx % 2 === 0 ? "#111117" : "#131318",
+                    background: idx % 2 === 0 ? "#0a1628" : "#131318",
                     borderBottom: "1px solid rgba(255,255,255,0.04)",
                   }}
                 >
@@ -1296,7 +1296,7 @@ function ManageSlipsSection({ token }: { token: string }) {
             <div className="hidden md:block overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr style={{ background: "#1a1a24", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+                  <tr style={{ background: "#0f1f38", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
                     {["Title", "Odds", "Price", "Status", "Result", "Actions"].map((h) => (
                       <th
                         key={h}
@@ -1313,7 +1313,7 @@ function ManageSlipsSection({ token }: { token: string }) {
                     <tr
                       key={slip._id}
                       style={{
-                        background: idx % 2 === 0 ? "#111117" : "#131318",
+                        background: idx % 2 === 0 ? "#0a1628" : "#131318",
                         borderBottom: "1px solid rgba(255,255,255,0.04)",
                       }}
                     >
@@ -1487,7 +1487,7 @@ function PaymentsSection({ token }: { token: string }) {
       <div
         className="admin-card overflow-hidden"
         style={{
-          background: "#111117",
+          background: "#0a1628",
           border: "1px solid rgba(255,255,255,0.06)",
           borderRadius: "16px",
         }}
@@ -1509,7 +1509,7 @@ function PaymentsSection({ token }: { token: string }) {
                   key={pmt._id}
                   className="px-4 py-4"
                   style={{
-                    background: idx % 2 === 0 ? "#111117" : "#131318",
+                    background: idx % 2 === 0 ? "#0a1628" : "#131318",
                     borderBottom: "1px solid rgba(255,255,255,0.04)",
                   }}
                 >
@@ -1534,7 +1534,7 @@ function PaymentsSection({ token }: { token: string }) {
                     </div>
                     <span
                       className="font-bold text-sm"
-                      style={{ color: pmt.status === "success" ? "#10b981" : "#ef4444" }}
+                      style={{ color: pmt.status === "success" ? "#f59e0b" : "#ef4444" }}
                     >
                       {pmt.currency} {pmt.amount}
                     </span>
@@ -1559,7 +1559,7 @@ function PaymentsSection({ token }: { token: string }) {
             <div className="hidden md:block overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr style={{ background: "#1a1a24", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+                  <tr style={{ background: "#0f1f38", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
                     {["Customer", "Slip", "Reference", "Amount", "Status", "Date"].map((h) => (
                       <th
                         key={h}
@@ -1576,7 +1576,7 @@ function PaymentsSection({ token }: { token: string }) {
                     <tr
                       key={pmt._id}
                       style={{
-                        background: idx % 2 === 0 ? "#111117" : "#131318",
+                        background: idx % 2 === 0 ? "#0a1628" : "#131318",
                         borderBottom: "1px solid rgba(255,255,255,0.04)",
                       }}
                     >
@@ -1612,7 +1612,7 @@ function PaymentsSection({ token }: { token: string }) {
                       <td className="px-5 py-4">
                         <span
                           className="font-bold text-sm"
-                          style={{ color: pmt.status === "success" ? "#10b981" : "#ef4444" }}
+                          style={{ color: pmt.status === "success" ? "#f59e0b" : "#ef4444" }}
                         >
                           {pmt.currency} {pmt.amount}
                         </span>
@@ -1686,14 +1686,14 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
         <div className="flex items-center gap-2.5">
           <div
             className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden"
-            style={{ background: "rgba(22,163,74,0.12)", border: "1px solid rgba(22,163,74,0.2)" }}
+            style={{ background: "rgba(245,158,11,0.12)", border: "1px solid rgba(245,158,11,0.2)" }}
           >
             <Image src="/logo.png" alt="Legit Odds" width={32} height={32} className="w-full h-full object-cover rounded-full" />
           </div>
           <div>
             <div
               style={{
-                fontFamily: "'Sora', sans-serif",
+                fontFamily: "'Outfit', sans-serif",
                 fontWeight: 700,
                 fontSize: "0.95rem",
                 letterSpacing: "-0.02em",
@@ -1701,13 +1701,13 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
               }}
             >
               365{" "}
-              <span style={{ color: "#16a34a" }}>Analyst</span>
+              <span style={{ color: "#f59e0b" }}>Analyst</span>
             </div>
             <div
               className="text-[10px] mt-0.5"
               style={{
                 color: "#52525b",
-                fontFamily: "'Sora', sans-serif",
+                fontFamily: "'Outfit', sans-serif",
                 fontWeight: 500,
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
@@ -1737,17 +1737,17 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
             style={
               section === item.id
                 ? {
-                    background: "rgba(22,163,74,0.1)",
-                    color: "#16a34a",
-                    border: "1px solid rgba(22,163,74,0.2)",
-                    fontFamily: "'Sora', sans-serif",
+                    background: "rgba(245,158,11,0.1)",
+                    color: "#f59e0b",
+                    border: "1px solid rgba(245,158,11,0.2)",
+                    fontFamily: "'Outfit', sans-serif",
                     fontWeight: 600,
                     letterSpacing: "0.02em",
                   }
                 : {
                     color: "#52525b",
                     border: "1px solid transparent",
-                    fontFamily: "'Sora', sans-serif",
+                    fontFamily: "'Outfit', sans-serif",
                     fontWeight: 600,
                     letterSpacing: "0.02em",
                   }
@@ -1766,7 +1766,7 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
           className="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm transition-all"
           style={{
             color: "#52525b",
-            fontFamily: "'Sora', sans-serif",
+            fontFamily: "'Outfit', sans-serif",
             fontWeight: 600,
             letterSpacing: "0.02em",
             border: "1px solid transparent",
@@ -1790,7 +1790,7 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
   return (
     <div
       className="min-h-screen flex flex-col md:flex-row"
-      style={{ background: "#09090b" }}
+      style={{ background: "#050a18" }}
     >
       {/* ── Mobile drawer overlay ── */}
       {drawerOpen && (
@@ -1806,11 +1806,11 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
         className={`fixed top-0 left-0 h-full z-50 flex flex-col w-72 transition-transform duration-300 md:hidden ${drawerOpen ? "translate-x-0" : "-translate-x-full"}`}
         style={{
           background: "#0e0e14",
-          borderRight: "1px solid rgba(22,163,74,0.1)",
+          borderRight: "1px solid rgba(245,158,11,0.1)",
         }}
       >
         {/* Green gradient top line */}
-        <div style={{ height: "3px", background: "linear-gradient(90deg,#16a34a,#10b981,#34d399)", flexShrink: 0 }} />
+        <div style={{ height: "3px", background: "linear-gradient(90deg,#f59e0b,#f59e0b,#fcd34d)", flexShrink: 0 }} />
         <SidebarContent />
       </div>
 
@@ -1819,12 +1819,12 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
         className="hidden md:flex flex-shrink-0 flex-col"
         style={{
           background: "#0e0e14",
-          borderRight: "1px solid rgba(22,163,74,0.1)",
+          borderRight: "1px solid rgba(245,158,11,0.1)",
           width: "224px",
         }}
       >
         {/* Green gradient top line */}
-        <div style={{ height: "3px", background: "linear-gradient(90deg,#16a34a,#10b981,#34d399)", flexShrink: 0 }} />
+        <div style={{ height: "3px", background: "linear-gradient(90deg,#f59e0b,#f59e0b,#fcd34d)", flexShrink: 0 }} />
         <SidebarContent />
       </aside>
 
@@ -1853,14 +1853,14 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
           </button>
           <div
             style={{
-              fontFamily: "'Sora', sans-serif",
+              fontFamily: "'Outfit', sans-serif",
               fontWeight: 700,
               fontSize: "1rem",
               letterSpacing: "-0.02em",
               color: "#f4f4f5",
             }}
           >
-            365 <span style={{ color: "#16a34a" }}>Analyst</span>
+            365 <span style={{ color: "#f59e0b" }}>Analyst</span>
           </div>
           <button
             onClick={onLogout}
@@ -1884,7 +1884,7 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
             <h1
               className="mb-5 md:mb-6"
               style={{
-                fontFamily: "'Sora', sans-serif",
+                fontFamily: "'Outfit', sans-serif",
                 fontWeight: 700,
                 fontSize: "clamp(1.3rem,4vw,1.8rem)",
                 letterSpacing: "-0.03em",
@@ -1903,7 +1903,7 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
         <nav
           className="md:hidden fixed bottom-0 left-0 right-0 z-30 flex"
           style={{
-            background: "#111117",
+            background: "#0a1628",
             borderTop: "1px solid rgba(255,255,255,0.07)",
             backdropFilter: "saturate(180%) blur(20px)",
           }}
@@ -1913,13 +1913,13 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
               key={item.id}
               onClick={() => goTo(item.id)}
               className="flex-1 flex flex-col items-center justify-center py-3 gap-1 transition-colors relative"
-              style={{ color: section === item.id ? "#16a34a" : "#52525b" }}
+              style={{ color: section === item.id ? "#f59e0b" : "#52525b" }}
             >
               <item.icon size={20} />
               <span
                 style={{
                   fontSize: "10px",
-                  fontFamily: "'Sora', sans-serif",
+                  fontFamily: "'Outfit', sans-serif",
                   fontWeight: 600,
                   letterSpacing: "0.04em",
                   textTransform: "uppercase",
@@ -1930,7 +1930,7 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
               {section === item.id && (
                 <div
                   className="absolute top-0 h-0.5 w-10 rounded-full"
-                  style={{ background: "linear-gradient(90deg,#16a34a,#10b981)" }}
+                  style={{ background: "linear-gradient(90deg,#f59e0b,#f59e0b)" }}
                 />
               )}
             </button>
@@ -1956,7 +1956,7 @@ export default function AdminPage() {
   if (!ready) return (
     <div
       className="min-h-screen"
-      style={{ background: "#09090b" }}
+      style={{ background: "#050a18" }}
     />
   );
 

@@ -23,8 +23,8 @@ function BetSlipImage({ src, alt }: { src: string; alt: string }) {
           className="relative w-full rounded-2xl overflow-hidden group cursor-zoom-in"
           style={{
             height: "280px",
-            background: "#0e0e14",
-            border: "1px solid rgba(22,163,74,0.15)",
+            background: "#070d1c",
+            border: "1px solid rgba(245,158,11,0.15)",
             boxShadow: "0 4px 24px rgba(0,0,0,0.4)",
           }}
         >
@@ -41,7 +41,7 @@ function BetSlipImage({ src, alt }: { src: string; alt: string }) {
           >
             <span
               className="text-xs font-bold px-4 py-2 rounded-xl flex items-center gap-1.5"
-              style={{ background: "linear-gradient(135deg,#16a34a,#10b981)", color: "#ffffff", boxShadow: "0 2px 12px rgba(22,163,74,0.4)" }}
+              style={{ background: "linear-gradient(135deg,#f59e0b,#f59e0b)", color: "#0a0500", boxShadow: "0 2px 12px rgba(245,158,11,0.4)" }}
             >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
               Tap to expand
@@ -67,7 +67,7 @@ function BetSlipImage({ src, alt }: { src: string; alt: string }) {
           <button
             onClick={() => setOpen(false)}
             className="fixed top-4 right-4 z-[10000] w-10 h-10 flex items-center justify-center rounded-full transition-all"
-            style={{ background: "rgba(22,163,74,0.9)", color: "#ffffff", boxShadow: "0 2px 16px rgba(22,163,74,0.4)" }}
+            style={{ background: "rgba(245,158,11,0.9)", color: "#0a0500", boxShadow: "0 2px 16px rgba(245,158,11,0.4)" }}
           >
             <X size={18} />
           </button>
@@ -176,10 +176,10 @@ interface Props {
 
 // ── Accent colours per odds category ─────────────────────────────────────────
 const ACCENT: Record<string, { bg: string; text: string; glow: string; border: string }> = {
-  "2+":  { bg: "rgba(22,163,74,0.1)",   text: "#16a34a", glow: "rgba(22,163,74,0.25)",   border: "rgba(22,163,74,0.3)" },
-  "5+":  { bg: "rgba(16,185,129,0.1)",  text: "#10b981", glow: "rgba(16,185,129,0.25)",  border: "rgba(16,185,129,0.3)" },
-  "10+": { bg: "rgba(52,211,153,0.1)",  text: "#34d399", glow: "rgba(52,211,153,0.25)",  border: "rgba(52,211,153,0.3)" },
-  "20+": { bg: "rgba(6,214,160,0.1)",   text: "#06d6a0", glow: "rgba(6,214,160,0.25)",   border: "rgba(6,214,160,0.3)" },
+  "2+":  { bg: "rgba(245,158,11,0.1)",  text: "#f59e0b", glow: "rgba(245,158,11,0.3)",  border: "rgba(245,158,11,0.3)" },
+  "5+":  { bg: "rgba(251,146,60,0.1)",  text: "#fb923c", glow: "rgba(251,146,60,0.3)",  border: "rgba(251,146,60,0.3)" },
+  "10+": { bg: "rgba(59,130,246,0.1)",  text: "#3b82f6", glow: "rgba(59,130,246,0.3)",  border: "rgba(59,130,246,0.3)" },
+  "20+": { bg: "rgba(239,68,68,0.1)",   text: "#ef4444", glow: "rgba(239,68,68,0.3)",   border: "rgba(239,68,68,0.3)" },
 };
 
 // ── Exchange rate: 1 GHS → NGN (update as needed) ────────────────────────────
@@ -256,7 +256,7 @@ function CountrySelectModal({
         className="relative w-full max-w-sm overflow-y-auto"
         style={{
           background: "rgba(14,14,20,0.95)",
-          border: "1px solid rgba(22,163,74,0.2)",
+          border: "1px solid rgba(245,158,11,0.2)",
           borderRadius: "24px",
           boxShadow: "0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04) inset",
           backdropFilter: "blur(20px)",
@@ -265,7 +265,7 @@ function CountrySelectModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Green gradient top bar */}
-        <div style={{ height: "3px", background: "linear-gradient(90deg,#16a34a,#10b981,#34d399)", width: "100%" }} />
+        <div style={{ height: "3px", background: "linear-gradient(90deg,#f59e0b,#f59e0b,#fcd34d)", width: "100%" }} />
 
         {/* Header */}
         <div className="px-6 pt-5 pb-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
@@ -290,14 +290,14 @@ function CountrySelectModal({
           <button
             onClick={onGhana}
             className="w-full flex items-center justify-between px-4 py-3 rounded-2xl transition-all duration-200 active:scale-[0.98] group"
-            style={{ background: "rgba(22,163,74,0.06)", border: "1px solid rgba(22,163,74,0.15)" }}
+            style={{ background: "rgba(245,158,11,0.06)", border: "1px solid rgba(245,158,11,0.15)" }}
             onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.background = "rgba(22,163,74,0.12)";
-              (e.currentTarget as HTMLElement).style.borderColor = "rgba(22,163,74,0.3)";
+              (e.currentTarget as HTMLElement).style.background = "rgba(245,158,11,0.12)";
+              (e.currentTarget as HTMLElement).style.borderColor = "rgba(245,158,11,0.3)";
             }}
             onMouseLeave={e => {
-              (e.currentTarget as HTMLElement).style.background = "rgba(22,163,74,0.06)";
-              (e.currentTarget as HTMLElement).style.borderColor = "rgba(22,163,74,0.15)";
+              (e.currentTarget as HTMLElement).style.background = "rgba(245,158,11,0.06)";
+              (e.currentTarget as HTMLElement).style.borderColor = "rgba(245,158,11,0.15)";
             }}
           >
             <div className="flex items-center gap-3">
@@ -307,8 +307,8 @@ function CountrySelectModal({
                 <p style={{ color: "#52525b", fontSize: "0.72rem", marginTop: "2px" }}>GHS {prediction.price} · Mobile Money / Card</p>
               </div>
             </div>
-            <div style={{ width: 28, height: 28, borderRadius: 8, background: "rgba(22,163,74,0.1)", border: "1px solid rgba(22,163,74,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2.5"><path d="M9 18l6-6-6-6"/></svg>
+            <div style={{ width: 28, height: 28, borderRadius: 8, background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" strokeWidth="2.5"><path d="M9 18l6-6-6-6"/></svg>
             </div>
           </button>
 
@@ -316,14 +316,14 @@ function CountrySelectModal({
           <button
             onClick={onNigeria}
             className="w-full flex items-center justify-between px-4 py-3 rounded-2xl transition-all duration-200 active:scale-[0.98]"
-            style={{ background: "rgba(16,185,129,0.06)", border: "1px solid rgba(16,185,129,0.15)" }}
+            style={{ background: "rgba(245,158,11,0.06)", border: "1px solid rgba(245,158,11,0.15)" }}
             onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.background = "rgba(16,185,129,0.12)";
-              (e.currentTarget as HTMLElement).style.borderColor = "rgba(16,185,129,0.3)";
+              (e.currentTarget as HTMLElement).style.background = "rgba(245,158,11,0.12)";
+              (e.currentTarget as HTMLElement).style.borderColor = "rgba(245,158,11,0.3)";
             }}
             onMouseLeave={e => {
-              (e.currentTarget as HTMLElement).style.background = "rgba(16,185,129,0.06)";
-              (e.currentTarget as HTMLElement).style.borderColor = "rgba(16,185,129,0.15)";
+              (e.currentTarget as HTMLElement).style.background = "rgba(245,158,11,0.06)";
+              (e.currentTarget as HTMLElement).style.borderColor = "rgba(245,158,11,0.15)";
             }}
           >
             <div className="flex items-center gap-3">
@@ -333,8 +333,8 @@ function CountrySelectModal({
                 <p style={{ color: "#52525b", fontSize: "0.72rem", marginTop: "2px" }}>₦{ngn.toLocaleString()} · Telegram Payment</p>
               </div>
             </div>
-            <div style={{ width: 28, height: 28, borderRadius: 8, background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5"><path d="M9 18l6-6-6-6"/></svg>
+            <div style={{ width: 28, height: 28, borderRadius: 8, background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" strokeWidth="2.5"><path d="M9 18l6-6-6-6"/></svg>
             </div>
           </button>
         </div>
@@ -502,18 +502,18 @@ function PaymentModal({
           className="relative w-full max-w-sm overflow-hidden flex flex-col items-center justify-center gap-5 py-14 px-8"
           style={{
             background: "rgba(14,14,20,0.95)",
-            border: "1px solid rgba(22,163,74,0.2)",
+            border: "1px solid rgba(245,158,11,0.2)",
             borderRadius: "24px",
             boxShadow: "0 32px 80px rgba(0,0,0,0.7)",
             backdropFilter: "blur(20px)",
           }}
         >
-          <div style={{ height: "3px", background: "linear-gradient(90deg,#16a34a,#10b981,#34d399)", width: "100%", position: "absolute", top: 0, left: 0 }} />
+          <div style={{ height: "3px", background: "linear-gradient(90deg,#f59e0b,#f59e0b,#fcd34d)", width: "100%", position: "absolute", top: 0, left: 0 }} />
           <div
             className="w-16 h-16 rounded-2xl flex items-center justify-center"
-            style={{ background: "rgba(22,163,74,0.1)", border: "1px solid rgba(22,163,74,0.25)", boxShadow: "0 0 30px rgba(22,163,74,0.15)" }}
+            style={{ background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.25)", boxShadow: "0 0 30px rgba(245,158,11,0.15)" }}
           >
-            <Loader2 size={28} style={{ color: "#16a34a" }} className="animate-spin" />
+            <Loader2 size={28} style={{ color: "#f59e0b" }} className="animate-spin" />
           </div>
           <div className="text-center">
             <p style={{ color: "#f4f4f5", fontWeight: 700, fontSize: "1rem", fontFamily: "'Sora',sans-serif", marginBottom: "6px" }}>Verifying Payment…</p>
@@ -537,7 +537,7 @@ function PaymentModal({
         className="relative w-full max-w-sm overflow-y-auto"
         style={{
           background: "rgba(14,14,20,0.95)",
-          border: "1px solid rgba(22,163,74,0.2)",
+          border: "1px solid rgba(245,158,11,0.2)",
           borderRadius: "24px",
           boxShadow: "0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04) inset",
           backdropFilter: "blur(20px)",
@@ -546,7 +546,7 @@ function PaymentModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Green gradient top bar */}
-        <div style={{ height: "3px", background: "linear-gradient(90deg,#16a34a,#10b981,#34d399)", width: "100%" }} />
+        <div style={{ height: "3px", background: "linear-gradient(90deg,#f59e0b,#f59e0b,#fcd34d)", width: "100%" }} />
 
         {/* Header */}
         <div className="px-6 pt-5 pb-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
@@ -573,10 +573,10 @@ function PaymentModal({
               onClick={() => { setTab(t); setError(""); setRestoreError(""); }}
               className="flex-1 flex items-center justify-center gap-1.5 py-2.5 text-xs font-bold rounded-xl transition-all duration-200"
               style={{
-                background: tab === t ? "linear-gradient(135deg,#16a34a,#10b981)" : "rgba(255,255,255,0.04)",
+                background: tab === t ? "linear-gradient(135deg,#f59e0b,#f59e0b)" : "rgba(255,255,255,0.04)",
                 color: tab === t ? "#ffffff" : "#52525b",
                 border: tab === t ? "none" : "1px solid rgba(255,255,255,0.06)",
-                boxShadow: tab === t ? "0 2px 12px rgba(22,163,74,0.35)" : "none",
+                boxShadow: tab === t ? "0 2px 12px rgba(245,158,11,0.35)" : "none",
                 letterSpacing: "0.03em",
               }}
             >
@@ -600,7 +600,7 @@ function PaymentModal({
             {/* Form */}
             <div className="px-5 pb-5 space-y-3">
               <div>
-                <label className="block text-xs font-bold mb-1.5" style={{ color: "rgba(22,163,74,0.9)", letterSpacing: "0.08em", textTransform: "uppercase", fontSize: "0.62rem" }}>Email address</label>
+                <label className="block text-xs font-bold mb-1.5" style={{ color: "rgba(245,158,11,0.9)", letterSpacing: "0.08em", textTransform: "uppercase", fontSize: "0.62rem" }}>Email address</label>
                 <input
                   type="email" placeholder="you@example.com" value={email} autoFocus
                   onChange={(e) => setEmail(e.target.value)}
@@ -618,9 +618,9 @@ function PaymentModal({
                 onClick={handlePay} disabled={step === "paying"}
                 className="w-full flex items-center justify-center gap-2 font-bold text-sm py-3.5 rounded-2xl transition-all duration-300 active:scale-[0.97]"
                 style={{
-                  background: step === "paying" ? "rgba(22,163,74,0.4)" : "linear-gradient(135deg,#16a34a,#10b981)",
-                  color: "#ffffff",
-                  boxShadow: step === "paying" ? "none" : "0 4px 20px rgba(22,163,74,0.4)",
+                  background: step === "paying" ? "rgba(245,158,11,0.4)" : "linear-gradient(135deg,#f59e0b,#f59e0b)",
+                  color: "#0a0500",
+                  boxShadow: step === "paying" ? "none" : "0 4px 20px rgba(245,158,11,0.4)",
                   letterSpacing: "0.03em",
                 }}
               >
@@ -636,15 +636,15 @@ function PaymentModal({
           <div className="px-5 py-4 space-y-3">
             <div
               className="rounded-xl p-3.5 flex gap-3"
-              style={{ background: "rgba(22,163,74,0.06)", border: "1px solid rgba(22,163,74,0.15)" }}
+              style={{ background: "rgba(245,158,11,0.06)", border: "1px solid rgba(245,158,11,0.15)" }}
             >
-              <Mail size={15} className="flex-shrink-0 mt-0.5" style={{ color: "#16a34a" }} />
+              <Mail size={15} className="flex-shrink-0 mt-0.5" style={{ color: "#f59e0b" }} />
               <p style={{ color: "#52525b", fontSize: "0.75rem", lineHeight: 1.55 }}>
                 Already paid? Enter the email you used and we&apos;ll restore your access instantly — no need to pay again.
               </p>
             </div>
             <div>
-              <label className="block text-xs font-bold mb-1.5" style={{ color: "rgba(22,163,74,0.9)", letterSpacing: "0.08em", textTransform: "uppercase", fontSize: "0.62rem" }}>Email used at payment</label>
+              <label className="block text-xs font-bold mb-1.5" style={{ color: "rgba(245,158,11,0.9)", letterSpacing: "0.08em", textTransform: "uppercase", fontSize: "0.62rem" }}>Email used at payment</label>
               <input
                 type="email" placeholder="you@example.com" value={restoreEmail} autoFocus
                 onChange={(e) => setRestoreEmail(e.target.value)}
@@ -662,9 +662,9 @@ function PaymentModal({
               onClick={handleRestore} disabled={restoreLoading}
               className="w-full flex items-center justify-center gap-2 font-bold text-sm py-3.5 rounded-2xl transition-all duration-300 active:scale-[0.97]"
               style={{
-                background: restoreLoading ? "rgba(16,185,129,0.4)" : "linear-gradient(135deg,#10b981,#34d399)",
-                color: "#ffffff",
-                boxShadow: restoreLoading ? "none" : "0 4px 20px rgba(16,185,129,0.35)",
+                background: restoreLoading ? "rgba(245,158,11,0.4)" : "linear-gradient(135deg,#f59e0b,#fcd34d)",
+                color: "#0a0500",
+                boxShadow: restoreLoading ? "none" : "0 4px 20px rgba(245,158,11,0.35)",
                 letterSpacing: "0.03em",
               }}
             >
@@ -799,9 +799,9 @@ function NigeriaPaymentModal({
         <div className="absolute inset-0 backdrop-blur-md" style={{ background: "rgba(10,14,23,0.7)" }} />
         <div
           className="relative w-full max-w-sm overflow-hidden shadow-2xl flex flex-col items-center justify-center gap-5 py-14 px-8"
-          style={{ background: "rgba(14,14,20,0.95)", border: "1px solid rgba(22,163,74,0.2)", borderRadius: "24px", backdropFilter: "blur(20px)" }}
+          style={{ background: "rgba(14,14,20,0.95)", border: "1px solid rgba(245,158,11,0.2)", borderRadius: "24px", backdropFilter: "blur(20px)" }}
         >
-          <div style={{ height: "3px", background: "linear-gradient(90deg,#16a34a,#10b981,#34d399)", width: "100%", position: "absolute", top: 0, left: 0 }} />
+          <div style={{ height: "3px", background: "linear-gradient(90deg,#f59e0b,#f59e0b,#fcd34d)", width: "100%", position: "absolute", top: 0, left: 0 }} />
           <div
             className="w-16 h-16 flex items-center justify-center"
             style={{ background: acc.bg, border: `1px solid ${acc.border}`, borderRadius: "16px", boxShadow: `0 0 24px ${acc.glow}` }}
@@ -829,7 +829,7 @@ function NigeriaPaymentModal({
         className="relative w-full max-w-sm overflow-hidden shadow-2xl"
         style={{
           background: "rgba(14,14,20,0.95)",
-          border: "1px solid rgba(22,163,74,0.2)",
+          border: "1px solid rgba(245,158,11,0.2)",
           borderRadius: "24px",
           boxShadow: "0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04) inset",
           backdropFilter: "blur(20px)",
@@ -837,7 +837,7 @@ function NigeriaPaymentModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Green gradient top bar */}
-        <div style={{ height: "3px", background: "linear-gradient(90deg,#16a34a,#10b981,#34d399)", width: "100%" }} />
+        <div style={{ height: "3px", background: "linear-gradient(90deg,#f59e0b,#f59e0b,#fcd34d)", width: "100%" }} />
 
         {/* Header */}
         <div className="px-6 pt-5 pb-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
@@ -896,9 +896,9 @@ function NigeriaPaymentModal({
             disabled={step === "paying"}
             className="w-full flex items-center justify-center gap-2 font-bold text-sm py-3.5 transition-all duration-300 active:scale-[0.97] rounded-2xl"
             style={{
-              background: step === "paying" ? "rgba(22,163,74,0.3)" : "linear-gradient(135deg, #16a34a, #10b981)",
-              color: "#ffffff",
-              boxShadow: step === "paying" ? "none" : "0 4px 20px rgba(22,163,74,0.4)",
+              background: step === "paying" ? "rgba(245,158,11,0.3)" : "linear-gradient(135deg, #f59e0b, #f59e0b)",
+              color: "#0a0500",
+              boxShadow: step === "paying" ? "none" : "0 4px 20px rgba(245,158,11,0.4)",
               letterSpacing: "0.04em",
               textTransform: "uppercase",
               fontSize: "0.8rem",
@@ -937,12 +937,12 @@ function UnlockedCard({ prediction, unlocked }: { prediction: Prediction; unlock
       <div
         className="px-4 py-3 flex items-center gap-2.5"
         style={{
-          background: "rgba(16,185,129,0.1)",
-          borderBottom: "1px solid rgba(16,185,129,0.15)",
+          background: "rgba(245,158,11,0.1)",
+          borderBottom: "1px solid rgba(245,158,11,0.15)",
         }}
       >
-        <CheckCircle size={15} className="flex-shrink-0" style={{ color: "#10b981" }} />
-        <span className="text-xs font-bold tracking-wide" style={{ color: "#10b981" }}>
+        <CheckCircle size={15} className="flex-shrink-0" style={{ color: "#f59e0b" }} />
+        <span className="text-xs font-bold tracking-wide" style={{ color: "#f59e0b" }}>
           Prediction Unlocked!
         </span>
         <span
@@ -976,7 +976,7 @@ function UnlockedCard({ prediction, unlocked }: { prediction: Prediction; unlock
               {unlocked.imageUrl && (
                 <span
                   className="absolute top-2 left-2 z-10 text-[10px] font-bold px-2 py-0.5 rounded-md"
-                  style={{ background: "rgba(16,185,129,0.8)", color: "#fff" }}
+                  style={{ background: "rgba(245,158,11,0.8)", color: "#fff" }}
                 >
                   AFTER ✓
                 </span>
@@ -1016,9 +1016,9 @@ function UnlockedCard({ prediction, unlocked }: { prediction: Prediction; unlock
                 onClick={copyCode}
                 className="flex items-center gap-1.5 text-xs px-3 py-1 rounded-lg transition-all"
                 style={{
-                  background: copied ? "rgba(16,185,129,0.1)" : "rgba(255,255,255,0.04)",
-                  color: copied ? "#10b981" : "#a1a1aa",
-                  border: copied ? "1px solid rgba(16,185,129,0.2)" : "1px solid rgba(255,255,255,0.06)",
+                  background: copied ? "rgba(245,158,11,0.1)" : "rgba(255,255,255,0.04)",
+                  color: copied ? "#f59e0b" : "#a1a1aa",
+                  border: copied ? "1px solid rgba(245,158,11,0.2)" : "1px solid rgba(255,255,255,0.06)",
                 }}
               >
                 {copied ? <><Check size={11} />Copied!</> : <><Copy size={11} />Copy</>}
@@ -1047,7 +1047,7 @@ function UnlockedCard({ prediction, unlocked }: { prediction: Prediction; unlock
                   color: "#f4f4f5",
                 }}
               >
-                <CheckCircle2 size={12} style={{ color: "#10b981" }} className="flex-shrink-0" />
+                <CheckCircle2 size={12} style={{ color: "#f59e0b" }} className="flex-shrink-0" />
                 {tip}
               </div>
             ))}
@@ -1063,7 +1063,7 @@ function UnlockedCard({ prediction, unlocked }: { prediction: Prediction; unlock
             <span>Odds: <span style={{ color: acc.text, fontWeight: 700 }}>{prediction.odds}</span></span>
           </div>
           <p className="text-[10px] flex items-center gap-1" style={{ color: "#52525b" }}>
-            <CheckCircle size={10} style={{ color: "#10b981" }} />
+            <CheckCircle size={10} style={{ color: "#f59e0b" }} />
             Access never expires
           </p>
         </div>
@@ -1096,7 +1096,7 @@ function LockedCard({
         animationFillMode: "forwards",
         borderRadius: "20px",
         overflow: "hidden",
-        background: "#0e0e14",
+        background: "#070d1c",
         border: "1px solid rgba(255,255,255,0.06)",
         boxShadow: "0 4px 40px rgba(0,0,0,0.4)",
         transition: "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
@@ -1131,7 +1131,7 @@ function LockedCard({
           <div
             className="absolute inset-0"
             style={{
-              background: `linear-gradient(145deg, #0d0d12 0%, #111117 60%, ${acc.bg} 100%)`,
+              background: `linear-gradient(145deg, #060c1a 0%, #0a1628 60%, ${acc.bg} 100%)`,
             }}
           />
         )}
@@ -1262,14 +1262,14 @@ function LockedCard({
         <div
           className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl font-bold text-sm transition-all duration-300"
           style={{
-            background: "linear-gradient(135deg, #16a34a 0%, #10b981 100%)",
-            color: "#ffffff",
+            background: "linear-gradient(135deg, #f59e0b 0%, #f59e0b 100%)",
+            color: "#0a0500",
             letterSpacing: "0.03em",
-            boxShadow: "0 4px 20px rgba(22,163,74,0.0)",
+            boxShadow: "0 4px 20px rgba(245,158,11,0.0)",
             transition: "box-shadow 0.3s ease",
           }}
-          onMouseEnter={e => ((e.currentTarget as HTMLElement).style.boxShadow = "0 6px 28px rgba(22,163,74,0.45)")}
-          onMouseLeave={e => ((e.currentTarget as HTMLElement).style.boxShadow = "0 4px 20px rgba(22,163,74,0.0)")}
+          onMouseEnter={e => ((e.currentTarget as HTMLElement).style.boxShadow = "0 6px 28px rgba(245,158,11,0.45)")}
+          onMouseLeave={e => ((e.currentTarget as HTMLElement).style.boxShadow = "0 4px 20px rgba(245,158,11,0.0)")}
         >
           <Lock size={14} strokeWidth={2.5} />
           Unlock Prediction

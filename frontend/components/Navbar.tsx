@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Trophy } from "lucide-react";
 import Image from "next/image";
 
 const navLinks = [
@@ -21,34 +21,62 @@ export default function Navbar() {
     <nav
       className="fixed top-0 left-0 right-0 z-50"
       style={{
-        background: "rgba(9,9,11,0.85)",
+        background: "rgba(5,10,24,0.88)",
         backdropFilter: "saturate(180%) blur(24px)",
         WebkitBackdropFilter: "saturate(180%) blur(24px)",
-        borderBottom: "1px solid rgba(255,255,255,0.06)",
+        borderBottom: "1px solid rgba(245,158,11,0.1)",
       }}
     >
+      {/* Gold top accent line */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "2px",
+          background: "linear-gradient(90deg, transparent 0%, rgba(245,158,11,0.5) 30%, rgba(251,191,36,0.9) 50%, rgba(245,158,11,0.5) 70%, transparent 100%)",
+        }}
+        aria-hidden="true"
+      />
+
       <div className="page-container">
         <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
             <div
-              className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110 overflow-hidden"
+              className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110 overflow-hidden"
               style={{
-                background: "rgba(22,163,74,0.1)",
-                border: "1px solid rgba(22,163,74,0.3)",
-                boxShadow: "0 0 12px rgba(22,163,74,0.15)",
+                background: "rgba(245,158,11,0.1)",
+                border: "1px solid rgba(245,158,11,0.3)",
+                boxShadow: "0 0 14px rgba(245,158,11,0.15)",
               }}
             >
-              <Image src="/logo.png" alt="Legit Odds" width={36} height={36} className="w-full h-full object-cover rounded-full" />
+              <Image src="/logo.png" alt="Legit Odds" width={36} height={36} className="w-full h-full object-cover rounded-xl" />
             </div>
-            <span
-              className="font-display font-bold tracking-tight leading-none"
-              style={{ fontSize: "1.15rem", letterSpacing: "-0.02em", color: "#f4f4f5" }}
-            >
-              Legit
-              <span style={{ color: "#16a34a" }}>Odds</span>
-            </span>
+            <div className="flex flex-col leading-none">
+              <span
+                className="font-display font-black tracking-tight"
+                style={{ fontSize: "1.05rem", letterSpacing: "-0.02em", color: "#f8fafc" }}
+              >
+                LEGIT
+                <span
+                  style={{
+                    background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                    marginLeft: "0.25rem",
+                  }}
+                >
+                  ODDS
+                </span>
+              </span>
+              <span style={{ fontSize: "0.55rem", color: "#475569", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", fontFamily: "Inter, sans-serif" }}>
+                Premium Tips
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
@@ -66,14 +94,16 @@ export default function Navbar() {
             {/* Admin CTA pill */}
             <Link
               href="/portal"
-              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold tracking-wide transition-all duration-300 hover:scale-105"
               style={{
-                background: "#16a34a",
-                color: "#ffffff",
-                boxShadow: "0 4px 14px rgba(22,163,74,0.3)",
+                background: "linear-gradient(135deg, #f59e0b, #d97706)",
+                color: "#0a0500",
+                boxShadow: "0 4px 14px rgba(245,158,11,0.35)",
                 letterSpacing: "0.04em",
+                fontFamily: "Outfit, sans-serif",
               }}
             >
+              <Trophy size={11} />
               Admin
             </Link>
           </div>
@@ -82,9 +112,9 @@ export default function Navbar() {
           <button
             className="md:hidden p-2 rounded-xl transition-all duration-200"
             style={{
-              color: "#a1a1aa",
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(255,255,255,0.08)",
+              color: "#94a3b8",
+              background: "rgba(245,158,11,0.06)",
+              border: "1px solid rgba(245,158,11,0.15)",
             }}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
@@ -100,8 +130,8 @@ export default function Navbar() {
           mobileOpen ? "max-h-72 opacity-100" : "max-h-0 opacity-0"
         }`}
         style={{
-          background: "#0d0d11",
-          borderTop: "1px solid rgba(255,255,255,0.06)",
+          background: "#070d1c",
+          borderTop: "1px solid rgba(245,158,11,0.1)",
         }}
       >
         <div className="page-container py-5 flex flex-col gap-1">
@@ -121,12 +151,14 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
               className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full text-xs font-bold tracking-wide transition-all duration-200"
               style={{
-                background: "#16a34a",
-                color: "#ffffff",
-                boxShadow: "0 4px 14px rgba(22,163,74,0.25)",
+                background: "linear-gradient(135deg, #f59e0b, #d97706)",
+                color: "#0a0500",
+                boxShadow: "0 4px 14px rgba(245,158,11,0.3)",
                 letterSpacing: "0.04em",
+                fontFamily: "Outfit, sans-serif",
               }}
             >
+              <Trophy size={11} />
               Admin
             </Link>
           </div>

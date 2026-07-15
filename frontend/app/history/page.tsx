@@ -41,7 +41,7 @@ export default function HistoryPage() {
       <Navbar />
       <main
         className="min-h-screen pt-24 pb-16 relative z-10"
-        style={{ background: "var(--bg, #09090b)" }}
+        style={{ background: "var(--bg, #050a18)" }}
       >
         <div className="page-container">
           {/* Header */}
@@ -49,7 +49,7 @@ export default function HistoryPage() {
             <h1
               className="font-brand text-4xl font-bold mb-2"
               style={{
-                fontFamily: "'Sora', sans-serif",
+                fontFamily: "'Outfit', sans-serif",
                 color: "#f4f4f5",
                 letterSpacing: "-0.03em",
               }}
@@ -66,7 +66,7 @@ export default function HistoryPage() {
             <div
               className="rounded-2xl p-6 mb-8 flex flex-col md:flex-row items-center gap-6"
               style={{
-                background: "#111117",
+                background: "#0a1628",
                 border: "1px solid rgba(255,255,255,0.06)",
               }}
             >
@@ -75,11 +75,11 @@ export default function HistoryPage() {
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
                   style={{
-                    background: "rgba(16,185,129,0.1)",
-                    border: "1px solid rgba(16,185,129,0.2)",
+                    background: "rgba(245,158,11,0.1)",
+                    border: "1px solid rgba(245,158,11,0.2)",
                   }}
                 >
-                  <TrendingUp size={22} style={{ color: "#10b981" }} />
+                  <TrendingUp size={22} style={{ color: "#f59e0b" }} />
                 </div>
                 <div>
                   <h2
@@ -100,22 +100,22 @@ export default function HistoryPage() {
                 <div
                   className="flex flex-col items-center px-5 py-3 rounded-xl"
                   style={{
-                    background: "rgba(16,185,129,0.08)",
-                    border: "1px solid rgba(16,185,129,0.18)",
+                    background: "rgba(245,158,11,0.08)",
+                    border: "1px solid rgba(245,158,11,0.18)",
                   }}
                 >
-                  <span className="text-2xl font-black" style={{ color: "#10b981" }}>{winRate}%</span>
+                  <span className="text-2xl font-black" style={{ color: "#f59e0b" }}>{winRate}%</span>
                   <span className="text-[11px] font-semibold mt-0.5" style={{ color: "#a1a1aa" }}>Win Rate</span>
                 </div>
                 {/* Wins */}
                 <div
                   className="flex flex-col items-center px-5 py-3 rounded-xl"
                   style={{
-                    background: "rgba(16,185,129,0.08)",
-                    border: "1px solid rgba(16,185,129,0.18)",
+                    background: "rgba(245,158,11,0.08)",
+                    border: "1px solid rgba(245,158,11,0.18)",
                   }}
                 >
-                  <span className="text-2xl font-black" style={{ color: "#10b981" }}>{wins}</span>
+                  <span className="text-2xl font-black" style={{ color: "#f59e0b" }}>{wins}</span>
                   <span className="text-[11px] font-semibold mt-0.5" style={{ color: "#a1a1aa" }}>Wins</span>
                 </div>
                 {/* Losses */}
@@ -133,11 +133,11 @@ export default function HistoryPage() {
                 <div
                   className="flex flex-col items-center px-5 py-3 rounded-xl"
                   style={{
-                    background: "rgba(22,163,74,0.08)",
-                    border: "1px solid rgba(22,163,74,0.18)",
+                    background: "rgba(245,158,11,0.08)",
+                    border: "1px solid rgba(245,158,11,0.18)",
                   }}
                 >
-                  <span className="text-2xl font-black" style={{ color: "#16a34a" }}>{predictions.length}</span>
+                  <span className="text-2xl font-black" style={{ color: "#f59e0b" }}>{predictions.length}</span>
                   <span className="text-[11px] font-semibold mt-0.5" style={{ color: "#a1a1aa" }}>Total</span>
                 </div>
               </div>
@@ -148,7 +148,7 @@ export default function HistoryPage() {
           <div
             className="flex items-center gap-2 mb-8 p-1.5 rounded-2xl w-fit"
             style={{
-              background: "#111117",
+              background: "#0a1628",
               border: "1px solid rgba(255,255,255,0.06)",
             }}
           >
@@ -157,10 +157,10 @@ export default function HistoryPage() {
               const activeStyles =
                 f === "win"
                   ? {
-                      background: "rgba(16,185,129,0.15)",
-                      color: "#10b981",
-                      border: "1px solid rgba(16,185,129,0.3)",
-                      boxShadow: "0 2px 8px rgba(16,185,129,0.12)",
+                      background: "rgba(245,158,11,0.15)",
+                      color: "#f59e0b",
+                      border: "1px solid rgba(245,158,11,0.3)",
+                      boxShadow: "0 2px 8px rgba(245,158,11,0.12)",
                     }
                   : f === "loss"
                   ? {
@@ -170,10 +170,10 @@ export default function HistoryPage() {
                       boxShadow: "0 2px 8px rgba(239,68,68,0.12)",
                     }
                   : {
-                      background: "rgba(22,163,74,0.15)",
-                      color: "#16a34a",
-                      border: "1px solid rgba(22,163,74,0.3)",
-                      boxShadow: "0 2px 8px rgba(22,163,74,0.12)",
+                      background: "rgba(245,158,11,0.15)",
+                      color: "#f59e0b",
+                      border: "1px solid rgba(245,158,11,0.3)",
+                      boxShadow: "0 2px 8px rgba(245,158,11,0.12)",
                     };
               return (
                 <button
@@ -236,7 +236,7 @@ export default function HistoryPage() {
             <div
               className="text-center py-24 rounded-2xl"
               style={{
-                background: "#111117",
+                background: "#0a1628",
                 border: "1px solid rgba(255,255,255,0.06)",
               }}
             >
@@ -285,9 +285,9 @@ function ResultCard({ prediction }: { prediction: Prediction }) {
         <span
           className="text-xs font-bold px-3 py-1 rounded-lg"
           style={{
-            background: "rgba(22,163,74,0.1)",
-            color: "#16a34a",
-            border: "1px solid rgba(22,163,74,0.2)",
+            background: "rgba(245,158,11,0.1)",
+            color: "#f59e0b",
+            border: "1px solid rgba(245,158,11,0.2)",
           }}
         >
           {prediction.oddsCategory} ODDS
@@ -335,7 +335,7 @@ function ResultCard({ prediction }: { prediction: Prediction }) {
               <div
                 className="flex items-center justify-center px-3 py-2"
                 style={{
-                  background: "#1a1a24",
+                  background: "#0f1f38",
                   borderBottom: "1px solid rgba(255,255,255,0.06)",
                 }}
               >
@@ -365,13 +365,13 @@ function ResultCard({ prediction }: { prediction: Prediction }) {
               <div
                 className="flex items-center justify-center px-3 py-2"
                 style={{
-                  background: isWin ? "rgba(16,185,129,0.1)" : "rgba(239,68,68,0.1)",
-                  borderBottom: `1px solid ${isWin ? "rgba(16,185,129,0.2)" : "rgba(239,68,68,0.2)"}`,
+                  background: isWin ? "rgba(245,158,11,0.1)" : "rgba(239,68,68,0.1)",
+                  borderBottom: `1px solid ${isWin ? "rgba(245,158,11,0.2)" : "rgba(239,68,68,0.2)"}`,
                 }}
               >
                 <span
                   className="text-[11px] font-bold uppercase tracking-wide"
-                  style={{ color: isWin ? "#10b981" : "#ef4444" }}
+                  style={{ color: isWin ? "#f59e0b" : "#ef4444" }}
                 >
                   Actual Result: {isWin ? "WON ✓" : "LOST ✗"}
                 </span>
@@ -426,7 +426,7 @@ function ResultCard({ prediction }: { prediction: Prediction }) {
                 </div>
               </div>
               {/* Body */}
-              <div className="p-4" style={{ background: "#1a1a24" }}>
+              <div className="p-4" style={{ background: "#0f1f38" }}>
                 <p
                   className="text-center text-xs mb-1"
                   style={{ color: "#52525b" }}
@@ -467,7 +467,7 @@ function ResultCard({ prediction }: { prediction: Prediction }) {
           <div>
             <p
               className="text-xs font-semibold text-center mb-3"
-              style={{ color: isWin ? "#10b981" : "#ef4444" }}
+              style={{ color: isWin ? "#f59e0b" : "#ef4444" }}
             >
               Actual Result:{" "}
               <span className="font-black">{isWin ? "WON" : "LOST"}</span>
@@ -476,11 +476,11 @@ function ResultCard({ prediction }: { prediction: Prediction }) {
               className="rounded-xl h-full flex flex-col items-center justify-center py-8 px-4 text-center"
               style={{
                 background: isWin
-                  ? "rgba(16,185,129,0.07)"
+                  ? "rgba(245,158,11,0.07)"
                   : "rgba(239,68,68,0.07)",
                 border: `1px solid ${
                   isWin
-                    ? "rgba(16,185,129,0.18)"
+                    ? "rgba(245,158,11,0.18)"
                     : "rgba(239,68,68,0.18)"
                 }`,
               }}
@@ -489,7 +489,7 @@ function ResultCard({ prediction }: { prediction: Prediction }) {
                 <CheckCircle2
                   size={48}
                   className="mb-3"
-                  style={{ color: "#10b981" }}
+                  style={{ color: "#f59e0b" }}
                 />
               ) : (
                 <XCircle
@@ -500,7 +500,7 @@ function ResultCard({ prediction }: { prediction: Prediction }) {
               )}
               <p
                 className="font-black text-2xl mb-2"
-                style={{ color: isWin ? "#10b981" : "#ef4444" }}
+                style={{ color: isWin ? "#f59e0b" : "#ef4444" }}
               >
                 {isWin ? "Big Win!" : "Better luck next time"}
               </p>
@@ -517,21 +517,21 @@ function ResultCard({ prediction }: { prediction: Prediction }) {
         className="flex items-center justify-between px-4 md:px-6 py-3"
         style={{
           borderTop: "1px solid rgba(255,255,255,0.06)",
-          background: "#111117",
+          background: "#0a1628",
         }}
       >
         <span className="text-xs" style={{ color: "#52525b" }}>
           {prediction.league}
         </span>
         {hasImages ? (
-          <span className="text-xs font-semibold flex items-center gap-1" style={{ color: "#16a34a" }}>
+          <span className="text-xs font-semibold flex items-center gap-1" style={{ color: "#f59e0b" }}>
             <CheckCircle2 size={12} />
             Transparent Results — See Both Prediction &amp; Proof
           </span>
         ) : (
           <span
             className="text-xs font-semibold flex items-center gap-1"
-            style={{ color: isWin ? "#10b981" : "#ef4444" }}
+            style={{ color: isWin ? "#f59e0b" : "#ef4444" }}
           >
             {isWin ? <CheckCircle2 size={12} /> : <XCircle size={12} />}
             {isWin ? "Prediction correct" : "Prediction missed"}

@@ -5,9 +5,9 @@ import Link from "next/link";
 /* ── Static data ──────────────────────────────────────────────── */
 
 const stats = [
-  { value: "87%", label: "Win Rate", color: "#16a34a", glow: "rgba(22,163,74,0.35)" },
-  { value: "500+", label: "Predictions", color: "#10b981", glow: "rgba(16,185,129,0.3)" },
-  { value: "100%", label: "Verified", color: "#34d399", glow: "rgba(52,211,153,0.3)" },
+  { value: "87%", label: "Win Rate", color: "#f59e0b", glow: "rgba(245,158,11,0.35)" },
+  { value: "500+", label: "Predictions", color: "#f59e0b", glow: "rgba(245,158,11,0.3)" },
+  { value: "100%", label: "Verified", color: "#fcd34d", glow: "rgba(251,191,36,0.3)" },
   { value: "2", label: "Countries", color: "#a3e635", glow: "rgba(163,230,53,0.3)" },
 ];
 
@@ -24,9 +24,9 @@ const steps = [
     title: "Secure Payment via Paystack",
     desc: "Complete your purchase through Paystack — the leading payment gateway in West Africa. Your card details are never stored by Legit Odds.",
     badge: "Secure Payment",
-    badgeColor: "#10b981",
-    badgeBg: "rgba(16,185,129,0.1)",
-    badgeBorder: "rgba(16,185,129,0.25)",
+    badgeColor: "#f59e0b",
+    badgeBg: "rgba(245,158,11,0.1)",
+    badgeBorder: "rgba(245,158,11,0.25)",
     icon: "🔒",
   },
   {
@@ -87,30 +87,30 @@ export default function AboutPage() {
     <>
       <Navbar />
 
-      <main style={{ background: "var(--bg, #09090b)", minHeight: "100vh" }}>
+      <main style={{ background: "var(--bg, #050a18)", minHeight: "100vh" }}>
 
         {/* ── Hero ─────────────────────────────────────────────── */}
         <section
           className="pt-28 pb-16 relative overflow-hidden"
-          style={{ background: "#09090b" }}
+          style={{ background: "#050a18" }}
         >
           {/* Background atmosphere */}
           <div className="pointer-events-none absolute inset-0" aria-hidden="true">
             <div style={{
               position: "absolute", top: "-15%", right: "-8%",
               width: "700px", height: "700px", borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(22,163,74,0.15) 0%, rgba(22,163,74,0.05) 50%, transparent 70%)",
+              background: "radial-gradient(circle, rgba(245,158,11,0.15) 0%, rgba(245,158,11,0.05) 50%, transparent 70%)",
               filter: "blur(70px)",
             }} />
             <div style={{
               position: "absolute", bottom: "0%", left: "-10%",
               width: "500px", height: "500px", borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 70%)",
+              background: "radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%)",
               filter: "blur(60px)",
             }} />
             <div style={{
               position: "absolute", inset: 0,
-              backgroundImage: "linear-gradient(rgba(22,163,74,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(22,163,74,0.025) 1px, transparent 1px)",
+              backgroundImage: "linear-gradient(rgba(245,158,11,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(245,158,11,0.025) 1px, transparent 1px)",
               backgroundSize: "80px 80px",
               maskImage: "radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 100%)",
             }} />
@@ -121,14 +121,14 @@ export default function AboutPage() {
             <div
               className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs font-bold tracking-widest uppercase mb-6 animate-fadeInUp"
               style={{
-                background: "rgba(22,163,74,0.08)",
-                border: "1px solid rgba(22,163,74,0.28)",
-                color: "#16a34a",
+                background: "rgba(245,158,11,0.08)",
+                border: "1px solid rgba(245,158,11,0.28)",
+                color: "#f59e0b",
               }}
             >
               <span style={{
                 width: "6px", height: "6px", borderRadius: "50%",
-                background: "#16a34a", boxShadow: "0 0 8px #16a34a",
+                background: "#f59e0b", boxShadow: "0 0 8px #f59e0b",
                 display: "inline-block", animation: "pulse 2s infinite",
               }} />
               About Legit Odds
@@ -137,7 +137,7 @@ export default function AboutPage() {
             <h1
               className="section-title animate-fadeInUp"
               style={{
-                fontFamily: "'Sora', sans-serif",
+                fontFamily: "'Outfit', sans-serif",
                 fontWeight: 900,
                 fontSize: "clamp(2rem, 6vw, 4rem)",
                 letterSpacing: "-0.04em",
@@ -149,11 +149,11 @@ export default function AboutPage() {
             >
               Legit Odds —{" "}
               <span style={{
-                background: "linear-gradient(135deg, #16a34a 0%, #10b981 50%, #34d399 100%)",
+                background: "linear-gradient(135deg, #f59e0b 0%, #f59e0b 50%, #fcd34d 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
-                filter: "drop-shadow(0 0 24px rgba(22,163,74,0.35))",
+                filter: "drop-shadow(0 0 24px rgba(245,158,11,0.35))",
                 display: "inline-block",
               }}>
                 Built for Smart Bettors
@@ -188,7 +188,7 @@ export default function AboutPage() {
                   }}
                 >
                   <span style={{
-                    fontFamily: "'Sora', sans-serif",
+                    fontFamily: "'Outfit', sans-serif",
                     fontWeight: 900,
                     fontSize: "clamp(1.4rem, 4vw, 2rem)",
                     color: stat.color,
@@ -217,20 +217,20 @@ export default function AboutPage() {
         <div className="glow-line" aria-hidden="true" />
 
         {/* ── Mission ──────────────────────────────────────────── */}
-        <section className="py-20" style={{ background: "#09090b" }}>
+        <section className="py-20" style={{ background: "#050a18" }}>
           <div className="page-container">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center max-w-5xl mx-auto">
               {/* Text */}
               <div>
                 <p
                   className="text-xs font-bold tracking-widest uppercase mb-4"
-                  style={{ color: "#16a34a", letterSpacing: "0.12em" }}
+                  style={{ color: "#f59e0b", letterSpacing: "0.12em" }}
                 >
                   Our Mission
                 </p>
                 <h2
                   style={{
-                    fontFamily: "'Sora', sans-serif",
+                    fontFamily: "'Outfit', sans-serif",
                     fontWeight: 800,
                     fontSize: "clamp(1.6rem, 4vw, 2.4rem)",
                     letterSpacing: "-0.03em",
@@ -261,15 +261,15 @@ export default function AboutPage() {
                     icon: "📊",
                     title: "Data-Driven Analysis",
                     desc: "Every prediction is backed by form tables, xG stats, and historical matchups.",
-                    color: "rgba(22,163,74,0.12)",
-                    border: "rgba(22,163,74,0.2)",
+                    color: "rgba(245,158,11,0.12)",
+                    border: "rgba(245,158,11,0.2)",
                   },
                   {
                     icon: "🏆",
                     title: "Consistent Track Record",
                     desc: "87% win rate maintained across 500+ published predictions — fully verifiable.",
-                    color: "rgba(16,185,129,0.1)",
-                    border: "rgba(16,185,129,0.2)",
+                    color: "rgba(245,158,11,0.1)",
+                    border: "rgba(245,158,11,0.2)",
                   },
                   {
                     icon: "🌍",
@@ -291,7 +291,7 @@ export default function AboutPage() {
                     <div>
                       <h3
                         style={{
-                          fontFamily: "'Sora', sans-serif",
+                          fontFamily: "'Outfit', sans-serif",
                           fontWeight: 700,
                           fontSize: "0.9rem",
                           color: "#f4f4f5",
@@ -313,14 +313,14 @@ export default function AboutPage() {
         <div className="glow-line" aria-hidden="true" />
 
         {/* ── How It Works ─────────────────────────────────────── */}
-        <section className="py-20" style={{ background: "#09090b" }}>
+        <section className="py-20" style={{ background: "#050a18" }}>
           <div className="page-container text-center">
-            <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: "#16a34a", letterSpacing: "0.12em" }}>
+            <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: "#f59e0b", letterSpacing: "0.12em" }}>
               Simple Process
             </p>
             <h2
               style={{
-                fontFamily: "'Sora', sans-serif",
+                fontFamily: "'Outfit', sans-serif",
                 fontWeight: 800,
                 fontSize: "clamp(1.6rem, 4vw, 2.6rem)",
                 letterSpacing: "-0.03em",
@@ -349,7 +349,7 @@ export default function AboutPage() {
                   {i < steps.length - 1 && (
                     <div
                       className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10"
-                      style={{ width: "2px", height: "40px", background: "rgba(22,163,74,0.2)" }}
+                      style={{ width: "2px", height: "40px", background: "rgba(245,158,11,0.2)" }}
                       aria-hidden="true"
                     />
                   )}
@@ -358,11 +358,11 @@ export default function AboutPage() {
                   <div className="flex items-center gap-3 mb-5">
                     <span
                       style={{
-                        fontFamily: "'Sora', sans-serif",
+                        fontFamily: "'Outfit', sans-serif",
                         fontWeight: 900,
                         fontSize: "0.65rem",
                         letterSpacing: "0.15em",
-                        color: "rgba(22,163,74,0.5)",
+                        color: "rgba(245,158,11,0.5)",
                         textTransform: "uppercase",
                       }}
                     >
@@ -373,7 +373,7 @@ export default function AboutPage() {
 
                   <h3
                     style={{
-                      fontFamily: "'Sora', sans-serif",
+                      fontFamily: "'Outfit', sans-serif",
                       fontWeight: 700,
                       fontSize: "1rem",
                       color: "#f4f4f5",
@@ -396,7 +396,7 @@ export default function AboutPage() {
                         color: step.badgeColor,
                         fontSize: "0.72rem",
                         fontWeight: 700,
-                        fontFamily: "'Sora', sans-serif",
+                        fontFamily: "'Outfit', sans-serif",
                         letterSpacing: "0.04em",
                       }}
                     >
@@ -417,15 +417,15 @@ export default function AboutPage() {
         <div className="glow-line" aria-hidden="true" />
 
         {/* ── Testimonials ─────────────────────────────────────── */}
-        <section className="py-20" style={{ background: "#09090b" }}>
+        <section className="py-20" style={{ background: "#050a18" }}>
           <div className="page-container">
             <div className="text-center mb-12">
-              <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: "#16a34a", letterSpacing: "0.12em" }}>
+              <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: "#f59e0b", letterSpacing: "0.12em" }}>
                 Real Winners
               </p>
               <h2
                 style={{
-                  fontFamily: "'Sora', sans-serif",
+                  fontFamily: "'Outfit', sans-serif",
                   fontWeight: 800,
                   fontSize: "clamp(1.6rem, 4vw, 2.6rem)",
                   letterSpacing: "-0.03em",
@@ -477,18 +477,18 @@ export default function AboutPage() {
                     <div
                       className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
                       style={{
-                        background: "linear-gradient(135deg, rgba(22,163,74,0.2), rgba(16,185,129,0.1))",
-                        border: "1px solid rgba(22,163,74,0.25)",
-                        fontFamily: "'Sora', sans-serif",
+                        background: "linear-gradient(135deg, rgba(245,158,11,0.2), rgba(245,158,11,0.1))",
+                        border: "1px solid rgba(245,158,11,0.25)",
+                        fontFamily: "'Outfit', sans-serif",
                         fontWeight: 700,
                         fontSize: "0.75rem",
-                        color: "#10b981",
+                        color: "#f59e0b",
                       }}
                     >
                       {t.name.charAt(0)}
                     </div>
                     <div>
-                      <p style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, fontSize: "0.82rem", color: "#f4f4f5" }}>
+                      <p style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: "0.82rem", color: "#f4f4f5" }}>
                         {t.name}
                       </p>
                       <p style={{ fontSize: "0.72rem", color: "#52525b" }}>{t.country}</p>
@@ -504,14 +504,14 @@ export default function AboutPage() {
         <div className="glow-line" aria-hidden="true" />
 
         {/* ── Contact ──────────────────────────────────────────── */}
-        <section className="py-20" style={{ background: "#09090b" }}>
+        <section className="py-20" style={{ background: "#050a18" }}>
           <div className="page-container text-center max-w-2xl mx-auto">
-            <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: "#16a34a", letterSpacing: "0.12em" }}>
+            <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: "#f59e0b", letterSpacing: "0.12em" }}>
               Get in Touch
             </p>
             <h2
               style={{
-                fontFamily: "'Sora', sans-serif",
+                fontFamily: "'Outfit', sans-serif",
                 fontWeight: 800,
                 fontSize: "clamp(1.6rem, 4vw, 2.2rem)",
                 letterSpacing: "-0.03em",
@@ -533,10 +533,10 @@ export default function AboutPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl font-bold text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
                 style={{
-                  background: "linear-gradient(135deg, #16a34a, #10b981)",
+                  background: "linear-gradient(135deg, #f59e0b, #f59e0b)",
                   color: "#ffffff",
-                  fontFamily: "'Sora', sans-serif",
-                  boxShadow: "0 4px 20px rgba(22,163,74,0.35)",
+                  fontFamily: "'Outfit', sans-serif",
+                  boxShadow: "0 4px 20px rgba(245,158,11,0.35)",
                   textDecoration: "none",
                 }}
               >
@@ -551,7 +551,7 @@ export default function AboutPage() {
                   background: "rgba(255,255,255,0.04)",
                   border: "1px solid rgba(255,255,255,0.1)",
                   color: "#a1a1aa",
-                  fontFamily: "'Sora', sans-serif",
+                  fontFamily: "'Outfit', sans-serif",
                   textDecoration: "none",
                 }}
               >
@@ -564,7 +564,7 @@ export default function AboutPage() {
             <div className="flex items-center justify-center gap-6">
               <Link
                 href="/terms"
-                className="text-sm font-medium transition-colors duration-200 hover:text-[#16a34a]"
+                className="text-sm font-medium transition-colors duration-200 hover:text-[#f59e0b]"
                 style={{ color: "#52525b" }}
               >
                 Terms of Service
@@ -572,7 +572,7 @@ export default function AboutPage() {
               <span style={{ color: "#3f3f46" }}>·</span>
               <Link
                 href="/faq"
-                className="text-sm font-medium transition-colors duration-200 hover:text-[#16a34a]"
+                className="text-sm font-medium transition-colors duration-200 hover:text-[#f59e0b]"
                 style={{ color: "#52525b" }}
               >
                 FAQ

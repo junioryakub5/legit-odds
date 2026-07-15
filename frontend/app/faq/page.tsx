@@ -53,7 +53,7 @@ const faqs = [
       <>
         <p>
           Yes — completely. All payments are processed by{" "}
-          <strong style={{ color: "#10b981" }}>Paystack</strong>, one of West Africa&apos;s most trusted
+          <strong style={{ color: "#f59e0b" }}>Paystack</strong>, one of West Africa&apos;s most trusted
           payment platforms. Paystack is PCI DSS Level 1 compliant and uses bank-grade encryption.
         </p>
         <p>
@@ -63,9 +63,9 @@ const faqs = [
       </>
     ),
     badge: "Secure Payment",
-    badgeColor: "#10b981",
-    badgeBg: "rgba(16,185,129,0.1)",
-    badgeBorder: "rgba(16,185,129,0.25)",
+    badgeColor: "#f59e0b",
+    badgeBg: "rgba(245,158,11,0.1)",
+    badgeBorder: "rgba(245,158,11,0.25)",
   },
   {
     id: "instant-access",
@@ -121,10 +121,10 @@ const faqs = [
         </ul>
         <p>
           Reach us on{" "}
-          <a href="https://t.me/notyourregulardude" target="_blank" rel="noopener noreferrer" style={{ color: "#16a34a" }}>
+          <a href="https://t.me/notyourregulardude" target="_blank" rel="noopener noreferrer" style={{ color: "#f59e0b" }}>
             Telegram @notyourregulardude
           </a>{" "}
-          or email <a href="mailto:support@legit-odds.com" style={{ color: "#16a34a" }}>support@legit-odds.com</a>.
+          or email <a href="mailto:support@legit-odds.com" style={{ color: "#f59e0b" }}>support@legit-odds.com</a>.
           We typically restore access within minutes.
         </p>
       </>
@@ -178,13 +178,13 @@ const faqs = [
     answer: (
       <>
         <p>
-          Our overall win rate stands at <strong style={{ color: "#16a34a" }}>87%</strong> across
+          Our overall win rate stands at <strong style={{ color: "#f59e0b" }}>87%</strong> across
           500+ published predictions. This rate is calculated based on whether the predicted outcome
           won — regardless of the specific odds.
         </p>
         <p>
           You can verify our track record by visiting the{" "}
-          <Link href="/history" style={{ color: "#16a34a" }}>History page</Link>, which lists all
+          <Link href="/history" style={{ color: "#f59e0b" }}>History page</Link>, which lists all
           past predictions with results. We believe in full transparency.
         </p>
         <p>
@@ -204,13 +204,13 @@ const faqs = [
         <ul>
           <li>
             <strong>Telegram (fastest):</strong>{" "}
-            <a href="https://t.me/notyourregulardude" target="_blank" rel="noopener noreferrer" style={{ color: "#16a34a" }}>
+            <a href="https://t.me/notyourregulardude" target="_blank" rel="noopener noreferrer" style={{ color: "#f59e0b" }}>
               @notyourregulardude
             </a>
           </li>
           <li>
             <strong>Email:</strong>{" "}
-            <a href="mailto:support@legit-odds.com" style={{ color: "#16a34a" }}>
+            <a href="mailto:support@legit-odds.com" style={{ color: "#f59e0b" }}>
               support@legit-odds.com
             </a>
           </li>
@@ -234,24 +234,24 @@ export default function FAQPage() {
     <>
       <Navbar />
 
-      <main style={{ background: "var(--bg, #09090b)", minHeight: "100vh" }}>
+      <main style={{ background: "var(--bg, #050a18)", minHeight: "100vh" }}>
 
         {/* ── Hero ─────────────────────────────────────────────── */}
         <section
           className="pt-28 pb-14 relative overflow-hidden"
-          style={{ background: "#09090b" }}
+          style={{ background: "#050a18" }}
         >
           <div className="pointer-events-none absolute inset-0" aria-hidden="true">
             <div style={{
               position: "absolute", top: "-20%", right: "-5%",
               width: "600px", height: "600px", borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(22,163,74,0.12) 0%, transparent 70%)",
+              background: "radial-gradient(circle, rgba(245,158,11,0.12) 0%, transparent 70%)",
               filter: "blur(70px)",
             }} />
             <div style={{
               position: "absolute", bottom: "0", left: "-10%",
               width: "400px", height: "400px", borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(16,185,129,0.07) 0%, transparent 70%)",
+              background: "radial-gradient(circle, rgba(245,158,11,0.07) 0%, transparent 70%)",
               filter: "blur(60px)",
             }} />
           </div>
@@ -260,9 +260,9 @@ export default function FAQPage() {
             <div
               className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs font-bold tracking-widest uppercase mb-6"
               style={{
-                background: "rgba(22,163,74,0.08)",
-                border: "1px solid rgba(22,163,74,0.25)",
-                color: "#16a34a",
+                background: "rgba(245,158,11,0.08)",
+                border: "1px solid rgba(245,158,11,0.25)",
+                color: "#f59e0b",
               }}
             >
               Help Centre
@@ -270,7 +270,7 @@ export default function FAQPage() {
 
             <h1
               style={{
-                fontFamily: "'Sora', sans-serif",
+                fontFamily: "'Outfit', sans-serif",
                 fontWeight: 900,
                 fontSize: "clamp(2rem, 6vw, 3.5rem)",
                 letterSpacing: "-0.04em",
@@ -281,7 +281,7 @@ export default function FAQPage() {
             >
               Frequently Asked{" "}
               <span style={{
-                background: "linear-gradient(135deg, #16a34a 0%, #10b981 60%, #34d399 100%)",
+                background: "linear-gradient(135deg, #f59e0b 0%, #f59e0b 60%, #fcd34d 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -300,7 +300,7 @@ export default function FAQPage() {
         <div className="glow-line" aria-hidden="true" />
 
         {/* ── Accordion ────────────────────────────────────────── */}
-        <section className="py-16" style={{ background: "#09090b" }}>
+        <section className="py-16" style={{ background: "#050a18" }}>
           <div className="page-container max-w-2xl mx-auto">
             <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
               {faqs.map((faq) => {
@@ -312,9 +312,9 @@ export default function FAQPage() {
                     id={faq.id}
                     style={{
                       background: isOpen
-                        ? "rgba(22,163,74,0.04)"
+                        ? "rgba(245,158,11,0.04)"
                         : "rgba(255,255,255,0.02)",
-                      border: `1px solid ${isOpen ? "rgba(22,163,74,0.2)" : "rgba(255,255,255,0.06)"}`,
+                      border: `1px solid ${isOpen ? "rgba(245,158,11,0.2)" : "rgba(255,255,255,0.06)"}`,
                       borderRadius: "16px",
                       overflow: "hidden",
                       transition: "border-color 0.25s, background 0.25s",
@@ -342,7 +342,7 @@ export default function FAQPage() {
                       <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flex: 1, minWidth: 0 }}>
                         <h2
                           style={{
-                            fontFamily: "'Sora', sans-serif",
+                            fontFamily: "'Outfit', sans-serif",
                             fontWeight: 700,
                             fontSize: "0.9rem",
                             color: isOpen ? "#f4f4f5" : "#a1a1aa",
@@ -361,7 +361,7 @@ export default function FAQPage() {
                               flexShrink: 0,
                               fontSize: "0.65rem",
                               fontWeight: 700,
-                              fontFamily: "'Sora', sans-serif",
+                              fontFamily: "'Outfit', sans-serif",
                               letterSpacing: "0.06em",
                               textTransform: "uppercase",
                               color: faq.badgeColor,
@@ -384,12 +384,12 @@ export default function FAQPage() {
                           width: "28px",
                           height: "28px",
                           borderRadius: "8px",
-                          background: isOpen ? "rgba(22,163,74,0.12)" : "rgba(255,255,255,0.04)",
-                          border: `1px solid ${isOpen ? "rgba(22,163,74,0.25)" : "rgba(255,255,255,0.07)"}`,
+                          background: isOpen ? "rgba(245,158,11,0.12)" : "rgba(255,255,255,0.04)",
+                          border: `1px solid ${isOpen ? "rgba(245,158,11,0.25)" : "rgba(255,255,255,0.07)"}`,
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
-                          color: isOpen ? "#16a34a" : "#52525b",
+                          color: isOpen ? "#f59e0b" : "#52525b",
                           fontSize: "0.75rem",
                           transition: "all 0.25s",
                           transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
@@ -435,13 +435,13 @@ export default function FAQPage() {
             <div
               className="mt-12 p-8 rounded-2xl text-center"
               style={{
-                background: "rgba(22,163,74,0.05)",
-                border: "1px solid rgba(22,163,74,0.15)",
+                background: "rgba(245,158,11,0.05)",
+                border: "1px solid rgba(245,158,11,0.15)",
               }}
             >
               <p
                 style={{
-                  fontFamily: "'Sora', sans-serif",
+                  fontFamily: "'Outfit', sans-serif",
                   fontWeight: 700,
                   fontSize: "1rem",
                   color: "#f4f4f5",
@@ -459,10 +459,10 @@ export default function FAQPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 px-7 py-3 rounded-xl font-bold text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
                 style={{
-                  background: "linear-gradient(135deg, #16a34a, #10b981)",
+                  background: "linear-gradient(135deg, #f59e0b, #f59e0b)",
                   color: "#ffffff",
-                  fontFamily: "'Sora', sans-serif",
-                  boxShadow: "0 4px 20px rgba(22,163,74,0.3)",
+                  fontFamily: "'Outfit', sans-serif",
+                  boxShadow: "0 4px 20px rgba(245,158,11,0.3)",
                   textDecoration: "none",
                 }}
               >
@@ -473,15 +473,15 @@ export default function FAQPage() {
 
             {/* Footer links */}
             <div className="flex items-center justify-center gap-6 mt-10 pt-8" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-              <Link href="/about" className="text-sm font-medium transition-colors duration-200 hover:text-[#16a34a]" style={{ color: "#52525b" }}>
+              <Link href="/about" className="text-sm font-medium transition-colors duration-200 hover:text-[#f59e0b]" style={{ color: "#52525b" }}>
                 About Us
               </Link>
               <span style={{ color: "#3f3f46" }}>·</span>
-              <Link href="/terms" className="text-sm font-medium transition-colors duration-200 hover:text-[#16a34a]" style={{ color: "#52525b" }}>
+              <Link href="/terms" className="text-sm font-medium transition-colors duration-200 hover:text-[#f59e0b]" style={{ color: "#52525b" }}>
                 Terms of Service
               </Link>
               <span style={{ color: "#3f3f46" }}>·</span>
-              <Link href="/" className="text-sm font-medium transition-colors duration-200 hover:text-[#16a34a]" style={{ color: "#52525b" }}>
+              <Link href="/" className="text-sm font-medium transition-colors duration-200 hover:text-[#f59e0b]" style={{ color: "#52525b" }}>
                 Home
               </Link>
             </div>
