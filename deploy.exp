@@ -1,0 +1,50 @@
+#!/usr/bin/expect -f
+# ─── LEGIT ODDS — VPS Deployment Script ──────────────────────────────────────────
+# Usage: ./deploy.exp
+# Prerequisites:
+#   1. SSH key auth configured: ssh-copy-id root@YOUR_VPS_IP
+#   2. After deploy, copy .env to /var/www/legit-odds/backend/.env on VPS
+#   3. Update VPS_IP below before running
+
+set timeout 300
+set VPS_IP "YOUR_VPS_IP"
+
+spawn ssh -o StrictHostKeyChecking=no root@$VPS_IP
+
+expect "# " {
+    send "set -e\r"
+}
+
+expect "# " {
+    send "apt-get update -qq && apt-get install -y -qq git curl nginx\r"
+}
+
+expect "# " {
+    send "curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && apt-get install -y nodejs\r"
+}
+
+expect "# " {
+    send "npm install -g pm2\r"
+}
+
+expect "# " {
+    send "mkdir -p /var/www && rm -rf /var/www/legit-odds && git clone https://github.com/YOUR_GITHUB_USERNAME/legit-odds.git /var/www/legit-odds\r"
+}
+
+expect "# " {
+    send "cd /var/www/legit-odds/backend && npm install --production\r"
+}
+
+expect "# " {
+    send "pm2 delete legitodds-api 2>/dev/null; pm2 start /var/www/legit-odds/backend/ecosystem.config.js && pm2 save && pm2 startup\r"
+}
+
+expect "# " {
+    send "curl -s http://localhost:8181/api/health\r"
+}
+
+expect "# " {
+    send "exit\r"
+}
+
+expect eof
