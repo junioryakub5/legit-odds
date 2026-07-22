@@ -344,11 +344,22 @@ function OverviewSection({ token }: { token: string }) {
     totalSlips: number; activeSlips: number; completedSlips: number;
     totalRevenue: number; totalSales: number; recentActivity: RecentActivity[];
     ghanaRevenue: number; nigeriaRevenue: number; ghanaSales: number; nigeriaSales: number;
+    todayRevenue?: number; todayGhanaRevenue?: number; todayNigeriaRevenue?: number; todaySales?: number;
+    weekRevenue?: number; weekSales?: number; monthRevenue?: number; monthSales?: number;
+    totalWins?: number; totalLosses?: number;
   } | null>(null);
   const [loading, setLoading] = useState(true);
+  const [statsError, setStatsError] = useState("");
 
   useEffect(() => {
-    adminGetStats(token).then(setStats).catch(console.error).finally(() => setLoading(false));
+    adminGetStats(token)
+      .then(setStats)
+      .catch((err: unknown) => {
+        const status = (err as { response?: { status?: number } })?.response?.status;
+        if (status === 429) setStatsError("Rate limited — wait a minute and refresh.");
+        else setStatsError("Failed to load stats.");
+      })
+      .finally(() => setLoading(false));
   }, [token]);
 
   if (loading) return (
@@ -358,173 +369,368 @@ function OverviewSection({ token }: { token: string }) {
   );
   if (!stats) return (
     <div className="text-center py-24" style={{ color: "#a1a1aa" }}>
-      Failed to load stats.
+      {statsError || "Failed to load stats."}
     </div>
   );
 
-  const statCards = [
-    { label: "Total Predictions", value: stats.totalSlips, icon: FileText, iconColor: "#f59e0b", iconBg: "rgba(245,158,11,0.08)", iconBorder: "rgba(245,158,11,0.18)" },
-    { label: "Active Slips", value: stats.activeSlips, icon: Activity, iconColor: "#10b981", iconBg: "rgba(16,185,129,0.08)", iconBorder: "rgba(16,185,129,0.18)" },
-    { label: "Total Revenue", value: `GHS ${stats.totalRevenue.toFixed(2)}`, icon: DollarSign, iconColor: "#fbbf24", iconBg: "rgba(251,191,36,0.08)", iconBorder: "rgba(251,191,36,0.18)" },
-    { label: "Win Rate", value: `${stats.totalSales > 0 ? Math.round((stats.completedSlips / stats.totalSlips) * 100) : 0}%`, icon: TrendingUp, iconColor: "#a78bfa", iconBg: "rgba(167,139,250,0.08)", iconBorder: "rgba(167,139,250,0.18)" },
-  ];
+  const totalWins  = stats.totalWins  ?? 0;
+  const totalLosses = stats.totalLosses ?? 0;
+  const winTotal = totalWins + totalLosses;
+  const winPct = winTotal > 0 ? Math.round((totalWins / winTotal) * 100) : 0;
+
+  const todayRevenue        = stats.todayRevenue        ?? 0;
+  const todayGhanaRevenue   = stats.todayGhanaRevenue   ?? 0;
+  const todayNigeriaRevenue = stats.todayNigeriaRevenue ?? 0;
+  const todaySales          = stats.todaySales          ?? 0;
+  const weekRevenue         = stats.weekRevenue         ?? 0;
+  const weekSales           = stats.weekSales           ?? 0;
+  const monthRevenue        = stats.monthRevenue        ?? 0;
+  const monthSales          = stats.monthSales          ?? 0;
+
+  const fmtTime = (iso: string) => {
+    const d = new Date(iso);
+    return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) +
+      " · " + d.toLocaleDateString([], { month: "short", day: "numeric" });
+  };
 
   return (
-    <div className="space-y-6">
-      {/* Stat Cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-        {statCards.map((s) => (
+    <div className="space-y-5">
+
+      {/* ── Row 1: Today Income (hero card) + Week + Month ── */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+        {/* Today Income — HERO */}
+        <div
+          className="md:col-span-1 rounded-2xl p-5 relative overflow-hidden"
+          style={{
+            background: "linear-gradient(135deg, rgba(245,158,11,0.18) 0%, rgba(251,191,36,0.10) 100%)",
+            border: "1px solid rgba(245,158,11,0.3)",
+            boxShadow: "0 0 40px rgba(245,158,11,0.08)",
+          }}
+        >
+          <div style={{
+            position: "absolute", top: "-30%", right: "-20%",
+            width: "180px", height: "180px", borderRadius: "50%",
+            background: "radial-gradient(circle, rgba(245,158,11,0.25), transparent 70%)",
+            pointerEvents: "none",
+          }} />
+          <div className="relative z-10">
+            <div className="flex items-center gap-2 mb-4">
+              <div style={{
+                width: 32, height: 32, borderRadius: 10,
+                background: "rgba(245,158,11,0.2)", border: "1px solid rgba(245,158,11,0.4)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}>
+                <DollarSign size={16} style={{ color: "#f59e0b" }} />
+              </div>
+              <p style={{ fontSize: "0.62rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(245,158,11,0.8)" }}>Income Today</p>
+            </div>
+            <div style={{ fontFamily: "'Sora',sans-serif", fontWeight: 900, fontSize: "2rem", color: "#fbbf24", lineHeight: 1, marginBottom: 6 }}>
+              GHS {todayRevenue.toFixed(2)}
+            </div>
+            <p style={{ fontSize: "0.72rem", color: "#52525b", marginBottom: 14 }}>
+              {todaySales} sale{todaySales !== 1 ? "s" : ""} today
+            </p>
+            <div className="space-y-2">
+              <div className="flex justify-between items-center">
+                <span style={{ fontSize: "0.7rem", color: "#71717a" }}>🇬🇭 Ghana (Paystack)</span>
+                <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#f59e0b" }}>GHS {todayGhanaRevenue.toFixed(2)}</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span style={{ fontSize: "0.7rem", color: "#71717a" }}>🇳🇬 Nigeria (Flutterwave)</span>
+                <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#fcd34d" }}>NGN {todayNigeriaRevenue.toLocaleString()}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* This Week */}
+        <div
+          className="rounded-2xl p-5"
+          style={{
+            background: "rgba(9,9,11,0.85)",
+            border: "1px solid rgba(99,102,241,0.2)",
+            backdropFilter: "blur(10px)",
+          }}
+        >
+          <div className="flex items-center gap-2 mb-4">
+            <div style={{
+              width: 32, height: 32, borderRadius: 10,
+              background: "rgba(99,102,241,0.12)", border: "1px solid rgba(99,102,241,0.25)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+            }}>
+              <TrendingUp size={16} style={{ color: "#818cf8" }} />
+            </div>
+            <p style={{ fontSize: "0.62rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(129,140,248,0.8)" }}>This Week</p>
+          </div>
+          <div style={{ fontFamily: "'Sora',sans-serif", fontWeight: 800, fontSize: "1.7rem", color: "#818cf8", lineHeight: 1, marginBottom: 6 }}>
+            GHS {weekRevenue.toFixed(2)}
+          </div>
+          <p style={{ fontSize: "0.72rem", color: "#52525b" }}>{weekSales} sales · last 7 days</p>
+          <div style={{ marginTop: 16, height: 3, borderRadius: 4, background: "rgba(99,102,241,0.12)" }}>
+            <div style={{
+              height: "100%", borderRadius: 4,
+              background: "linear-gradient(90deg, #818cf8, #6366f1)",
+              width: stats.totalRevenue > 0 ? `${Math.min(100, (weekRevenue / stats.totalRevenue) * 100)}%` : "0%",
+              transition: "width 0.6s ease",
+            }} />
+          </div>
+          <p style={{ fontSize: "0.65rem", color: "#52525b", marginTop: 4 }}>
+            {stats.totalRevenue > 0 ? Math.round((weekRevenue / stats.totalRevenue) * 100) : 0}% of all-time
+          </p>
+        </div>
+
+        {/* This Month */}
+        <div
+          className="rounded-2xl p-5"
+          style={{
+            background: "rgba(9,9,11,0.85)",
+            border: "1px solid rgba(245,158,11,0.2)",
+            backdropFilter: "blur(10px)",
+          }}
+        >
+          <div className="flex items-center gap-2 mb-4">
+            <div style={{
+              width: 32, height: 32, borderRadius: 10,
+              background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.25)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+            }}>
+              <BarChart2 size={16} style={{ color: "#f59e0b" }} />
+            </div>
+            <p style={{ fontSize: "0.62rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(245,158,11,0.8)" }}>This Month</p>
+          </div>
+          <div style={{ fontFamily: "'Sora',sans-serif", fontWeight: 800, fontSize: "1.7rem", color: "#f59e0b", lineHeight: 1, marginBottom: 6 }}>
+            GHS {monthRevenue.toFixed(2)}
+          </div>
+          <p style={{ fontSize: "0.72rem", color: "#52525b" }}>{monthSales} sales · current month</p>
+          <div style={{ marginTop: 16, height: 3, borderRadius: 4, background: "rgba(245,158,11,0.1)" }}>
+            <div style={{
+              height: "100%", borderRadius: 4,
+              background: "linear-gradient(90deg, #f59e0b, #d97706)",
+              width: stats.totalRevenue > 0 ? `${Math.min(100, (monthRevenue / stats.totalRevenue) * 100)}%` : "0%",
+              transition: "width 0.6s ease",
+            }} />
+          </div>
+          <p style={{ fontSize: "0.65rem", color: "#52525b", marginTop: 4 }}>
+            {stats.totalRevenue > 0 ? Math.round((monthRevenue / stats.totalRevenue) * 100) : 0}% of all-time
+          </p>
+        </div>
+      </div>
+
+      {/* ── Row 2: Stat chips ── */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        {[
+          {
+            label: "Total Revenue",
+            value: `GHS ${stats.totalRevenue.toFixed(2)}`,
+            sub: `${stats.totalSales} total sales`,
+            color: "#10b981", bg: "rgba(16,185,129,0.08)", border: "rgba(16,185,129,0.2)",
+            Icon: DollarSign,
+          },
+          {
+            label: "Total Predictions",
+            value: stats.totalSlips,
+            sub: `${stats.activeSlips} active · ${stats.completedSlips} done`,
+            color: "#f59e0b", bg: "rgba(245,158,11,0.08)", border: "rgba(245,158,11,0.2)",
+            Icon: FileText,
+          },
+          {
+            label: "Win Rate",
+            value: `${winPct}%`,
+            sub: `${totalWins}W · ${totalLosses}L · ${winTotal} total`,
+            color: winPct >= 50 ? "#10b981" : "#ef4444",
+            bg: winPct >= 50 ? "rgba(16,185,129,0.08)" : "rgba(239,68,68,0.06)",
+            border: winPct >= 50 ? "rgba(16,185,129,0.2)" : "rgba(239,68,68,0.18)",
+            Icon: TrendingUp,
+          },
+          {
+            label: "Active Slips",
+            value: stats.activeSlips,
+            sub: `${stats.completedSlips} completed`,
+            color: "#a78bfa", bg: "rgba(167,139,250,0.08)", border: "rgba(167,139,250,0.2)",
+            Icon: Activity,
+          },
+        ].map((s) => (
           <div
             key={s.label}
             style={{
-              background: "rgba(9,9,11,0.8)",
-              border: "1px solid rgba(255,255,255,0.06)",
-              borderRadius: "16px",
-              padding: "1.25rem",
-              backdropFilter: "blur(12px)",
-              transition: "border-color 0.2s, transform 0.2s",
+              background: "rgba(9,9,11,0.85)",
+              border: `1px solid ${s.border}`,
+              borderRadius: 16,
+              padding: "1rem 1.25rem",
+              backdropFilter: "blur(10px)",
+              transition: "transform 0.2s, box-shadow 0.2s",
             }}
-            onMouseEnter={e => { (e.currentTarget.style.borderColor = s.iconBorder); (e.currentTarget.style.transform = "translateY(-2px)"); }}
-            onMouseLeave={e => { (e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)"); (e.currentTarget.style.transform = "translateY(0)"); }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
+              (e.currentTarget as HTMLElement).style.boxShadow = `0 8px 30px ${s.bg}`;
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+              (e.currentTarget as HTMLElement).style.boxShadow = "none";
+            }}
           >
-            <div className="flex items-center justify-between mb-4">
-              <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center"
-                style={{ background: s.iconBg, border: `1px solid ${s.iconBorder}` }}
-              >
-                <s.icon size={18} style={{ color: s.iconColor }} />
+            <div className="flex items-center justify-between mb-3">
+              <div style={{ width: 34, height: 34, borderRadius: 10, background: s.bg, border: `1px solid ${s.border}`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <s.Icon size={16} style={{ color: s.color }} />
               </div>
             </div>
-            <div
-              style={{
-                fontFamily: "'Sora', sans-serif",
-                fontWeight: 800,
-                fontSize: "1.6rem",
-                color: s.iconColor,
-                lineHeight: 1,
-                marginBottom: "6px",
-              }}
-            >
+            <div style={{ fontFamily: "'Sora',sans-serif", fontWeight: 800, fontSize: "1.45rem", color: s.color, lineHeight: 1, marginBottom: 4 }}>
               {s.value}
             </div>
-            <div style={{ fontSize: "0.75rem", color: "#52525b", fontWeight: 600, letterSpacing: "0.03em", fontFamily: "'DM Sans', sans-serif" }}>
-              {s.label}
-            </div>
+            <div style={{ fontSize: "0.68rem", color: "#52525b", fontWeight: 600, letterSpacing: "0.02em" }}>{s.label}</div>
+            <div style={{ fontSize: "0.62rem", color: "#3f3f46", marginTop: 2 }}>{s.sub}</div>
           </div>
         ))}
       </div>
 
-      {/* Revenue breakdown row: Ghana + Nigeria */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {/* Ghana Payments */}
-        <div style={{ background: "rgba(9,9,11,0.8)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "16px", padding: "1.25rem", backdropFilter: "blur(12px)" }}>
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-2">
-              <div style={{ width: 32, height: 32, borderRadius: 10, background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <Globe2 size={16} style={{ color: "#f59e0b" }} />
-              </div>
-              <h3 style={{ color: "#f4f4f5", fontWeight: 700, fontSize: "0.9rem", fontFamily: "'Sora',sans-serif" }}>🇬🇭 Ghana (Paystack)</h3>
+      {/* ── Row 3: Win/Loss bar + Country revenue split ── */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+        {/* Win / Loss Record */}
+        <div style={{ background: "rgba(9,9,11,0.85)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: "1.25rem", backdropFilter: "blur(10px)" }}>
+          <div className="flex items-center gap-2 mb-4">
+            <div style={{ width: 30, height: 30, borderRadius: 9, background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <CheckCircle size={14} style={{ color: "#10b981" }} />
             </div>
+            <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "#a1a1aa" }}>Win / Loss Record</p>
           </div>
-          <div className="flex justify-between text-sm mb-3">
-            <span style={{ color: "#52525b" }}>Revenue</span>
-            <span style={{ fontWeight: 800, color: "#f59e0b", fontFamily: "'Sora',sans-serif", fontSize: "1rem" }}>GHS {(stats.ghanaRevenue ?? stats.totalRevenue).toFixed(2)}</span>
+          <div style={{ height: 8, borderRadius: 8, background: "rgba(239,68,68,0.2)", overflow: "hidden", marginBottom: 10 }}>
+            <div style={{
+              height: "100%", borderRadius: 8,
+              background: "linear-gradient(90deg, #f59e0b, #fbbf24)",
+              width: `${winPct}%`,
+              transition: "width 0.8s ease",
+            }} />
           </div>
-          <div style={{ height: "1px", background: "rgba(255,255,255,0.05)", marginBottom: "0.75rem" }} />
-          <div className="flex justify-between text-sm">
-            <span style={{ color: "#52525b" }}>Sales</span>
-            <span style={{ fontWeight: 700, color: "#f4f4f5" }}>{stats.ghanaSales ?? stats.totalSales}</span>
+          <div className="flex justify-between">
+            <div className="text-center">
+              <div style={{ fontFamily: "'Sora',sans-serif", fontWeight: 800, fontSize: "1.4rem", color: "#10b981" }}>{totalWins}</div>
+              <div style={{ fontSize: "0.62rem", color: "#52525b", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em" }}>Wins</div>
+            </div>
+            <div className="text-center">
+              <div style={{ fontFamily: "'Sora',sans-serif", fontWeight: 800, fontSize: "1.4rem", color: winPct >= 50 ? "#f59e0b" : "#ef4444" }}>{winPct}%</div>
+              <div style={{ fontSize: "0.62rem", color: "#52525b", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em" }}>Rate</div>
+            </div>
+            <div className="text-center">
+              <div style={{ fontFamily: "'Sora',sans-serif", fontWeight: 800, fontSize: "1.4rem", color: "#ef4444" }}>{totalLosses}</div>
+              <div style={{ fontSize: "0.62rem", color: "#52525b", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em" }}>Losses</div>
+            </div>
           </div>
         </div>
 
-        {/* Nigeria Payments */}
-        <div style={{ background: "rgba(9,9,11,0.8)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "16px", padding: "1.25rem", backdropFilter: "blur(12px)" }}>
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-2">
-              <div style={{ width: 32, height: 32, borderRadius: 10, background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <Globe2 size={16} style={{ color: "#fcd34d" }} />
-              </div>
-              <h3 style={{ color: "#f4f4f5", fontWeight: 700, fontSize: "0.9rem", fontFamily: "'Sora',sans-serif" }}>🇳🇬 Nigeria (Flutterwave)</h3>
+        {/* Ghana */}
+        <div style={{ background: "rgba(9,9,11,0.85)", border: "1px solid rgba(245,158,11,0.15)", borderRadius: 16, padding: "1.25rem", backdropFilter: "blur(10px)" }}>
+          <div className="flex items-center gap-2 mb-3">
+            <div style={{ width: 30, height: 30, borderRadius: 9, background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <Globe2 size={14} style={{ color: "#f59e0b" }} />
+            </div>
+            <h3 style={{ color: "#f4f4f5", fontWeight: 700, fontSize: "0.85rem", fontFamily: "'Sora',sans-serif" }}>🇬🇭 Ghana (Paystack)</h3>
+          </div>
+          <div className="space-y-2">
+            <div className="flex justify-between items-baseline">
+              <span style={{ fontSize: "0.68rem", color: "#52525b" }}>All-time</span>
+              <span style={{ fontWeight: 800, color: "#f59e0b", fontFamily: "'Sora',sans-serif", fontSize: "1rem" }}>GHS {(stats.ghanaRevenue ?? 0).toFixed(2)}</span>
+            </div>
+            <div style={{ height: "1px", background: "rgba(255,255,255,0.05)" }} />
+            <div className="flex justify-between items-baseline">
+              <span style={{ fontSize: "0.68rem", color: "#52525b" }}>Today</span>
+              <span style={{ fontWeight: 700, color: "#fbbf24", fontSize: "0.9rem" }}>GHS {todayGhanaRevenue.toFixed(2)}</span>
+            </div>
+            <div style={{ height: "1px", background: "rgba(255,255,255,0.05)" }} />
+            <div className="flex justify-between text-sm">
+              <span style={{ fontSize: "0.68rem", color: "#52525b" }}>Total sales</span>
+              <span style={{ fontWeight: 700, color: "#f4f4f5", fontSize: "0.85rem" }}>{stats.ghanaSales}</span>
             </div>
           </div>
-          <div className="flex justify-between text-sm mb-3">
-            <span style={{ color: "#52525b" }}>Revenue</span>
-            <span style={{ fontWeight: 800, color: "#fcd34d", fontFamily: "'Sora',sans-serif", fontSize: "1rem" }}>NGN {(stats.nigeriaRevenue ?? 0).toLocaleString()}</span>
+        </div>
+
+        {/* Nigeria */}
+        <div style={{ background: "rgba(9,9,11,0.85)", border: "1px solid rgba(251,191,36,0.15)", borderRadius: 16, padding: "1.25rem", backdropFilter: "blur(10px)" }}>
+          <div className="flex items-center gap-2 mb-3">
+            <div style={{ width: 30, height: 30, borderRadius: 9, background: "rgba(251,191,36,0.1)", border: "1px solid rgba(251,191,36,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <Globe2 size={14} style={{ color: "#fcd34d" }} />
+            </div>
+            <h3 style={{ color: "#f4f4f5", fontWeight: 700, fontSize: "0.85rem", fontFamily: "'Sora',sans-serif" }}>🇳🇬 Nigeria (Flutterwave)</h3>
           </div>
-          <div style={{ height: "1px", background: "rgba(255,255,255,0.05)", marginBottom: "0.75rem" }} />
-          <div className="flex justify-between text-sm">
-            <span style={{ color: "#52525b" }}>Sales</span>
-            <span style={{ fontWeight: 700, color: "#f4f4f5" }}>{stats.nigeriaSales ?? 0}</span>
+          <div className="space-y-2">
+            <div className="flex justify-between items-baseline">
+              <span style={{ fontSize: "0.68rem", color: "#52525b" }}>All-time</span>
+              <span style={{ fontWeight: 800, color: "#fcd34d", fontFamily: "'Sora',sans-serif", fontSize: "1rem" }}>NGN {(stats.nigeriaRevenue ?? 0).toLocaleString()}</span>
+            </div>
+            <div style={{ height: "1px", background: "rgba(255,255,255,0.05)" }} />
+            <div className="flex justify-between items-baseline">
+              <span style={{ fontSize: "0.68rem", color: "#52525b" }}>Today</span>
+              <span style={{ fontWeight: 700, color: "#fde68a", fontSize: "0.9rem" }}>NGN {todayNigeriaRevenue.toLocaleString()}</span>
+            </div>
+            <div style={{ height: "1px", background: "rgba(255,255,255,0.05)" }} />
+            <div className="flex justify-between text-sm">
+              <span style={{ fontSize: "0.68rem", color: "#52525b" }}>Total sales</span>
+              <span style={{ fontWeight: 700, color: "#f4f4f5", fontSize: "0.85rem" }}>{stats.nigeriaSales}</span>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Recent Payments */}
-      <div
-        className="rounded-2xl overflow-hidden"
-        style={{
-          background: "#111117",
-          border: "1px solid rgba(255,255,255,0.06)",
-        }}
-      >
-        <div
-          className="px-5 py-4"
-          style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
-        >
-          <h3 className="font-semibold" style={{ color: "#f4f4f5" }}>
-            Recent Payments
-          </h3>
+      {/* ── Recent Payments ── */}
+      <div className="rounded-2xl overflow-hidden" style={{ background: "#0d0d11", border: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="px-5 py-4 flex items-center justify-between" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+          <h3 className="font-semibold" style={{ color: "#f4f4f5" }}>Recent Payments</h3>
+          {stats.recentActivity.length > 0 && (
+            <span style={{ fontSize: "0.65rem", color: "#52525b", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase" }}>
+              {stats.recentActivity.length} shown
+            </span>
+          )}
         </div>
         {stats.recentActivity.length === 0 ? (
-          <div
-            className="py-12 text-center text-sm"
-            style={{ color: "#52525b" }}
-          >
+          <div className="py-12 text-center text-sm" style={{ color: "#52525b" }}>
             No payment activity yet.
           </div>
         ) : (
           <div>
-            {stats.recentActivity.map((act) => (
-              <div
-                key={act._id}
-                className="flex items-center justify-between px-5 py-3.5 transition-colors"
-                style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.02)")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "transparent")}
-              >
-                <div className="flex items-center gap-3">
-                  <div
-                    className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
-                    style={{
-                      background: "rgba(245,158,11,0.12)",
-                      color: "#f59e0b",
-                      border: "1px solid rgba(245,158,11,0.25)",
-                    }}
-                  >
-                    {act.email[0].toUpperCase()}
+            {stats.recentActivity.map((act) => {
+              const isGhana = (act as RecentActivity & { provider?: string }).provider !== "flutterwave";
+              return (
+                <div
+                  key={act._id}
+                  className="flex items-center justify-between px-5 py-3.5 transition-colors"
+                  style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}
+                  onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.02)")}
+                  onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "transparent")}
+                >
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div
+                      className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
+                      style={{ background: "rgba(245,158,11,0.12)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.25)" }}
+                    >
+                      {act.email[0].toUpperCase()}
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-sm font-medium truncate" style={{ color: "#a1a1aa", maxWidth: 180 }}>{act.email}</p>
+                      <p className="text-xs truncate" style={{ color: "#52525b", maxWidth: 180 }}>{act.predictionTitle}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-sm font-medium" style={{ color: "#a1a1aa" }}>
-                      {act.email}
-                    </p>
-                    <p className="text-xs" style={{ color: "#52525b" }}>
-                      {act.predictionTitle}
-                    </p>
+                  <div className="flex items-center gap-3 flex-shrink-0 ml-3">
+                    <div
+                      className="px-2 py-0.5 rounded-full text-xs font-semibold hidden sm:block"
+                      style={{
+                        background: isGhana ? "rgba(245,158,11,0.1)" : "rgba(251,191,36,0.1)",
+                        color: isGhana ? "#f59e0b" : "#fcd34d",
+                        border: isGhana ? "1px solid rgba(245,158,11,0.2)" : "1px solid rgba(251,191,36,0.2)",
+                      }}
+                    >
+                      {isGhana ? "🇬🇭 GH" : "🇳🇬 NG"}
+                    </div>
+                    <div className="text-right">
+                      <p className="text-sm font-bold" style={{ color: act.status === "success" ? "#f59e0b" : "#ef4444" }}>
+                        {act.currency} {act.amount}
+                      </p>
+                      <p className="text-xs" style={{ color: "#3f3f46" }}>{fmtTime(act.createdAt)}</p>
+                    </div>
                   </div>
                 </div>
-                <div className="text-right">
-                  <p
-                    className="text-sm font-bold"
-                    style={{ color: act.status === "success" ? "#f59e0b" : "#ef4444" }}
-                  >
-                    {act.currency} {act.amount}
-                  </p>
-                  <p className="text-xs" style={{ color: "#52525b" }}>
-                    {act.status}
-                  </p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>
