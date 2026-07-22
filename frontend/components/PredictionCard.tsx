@@ -126,7 +126,7 @@ function loadPaystack(): Promise<void> {
 // ── Flutterwave public key ────────────────────────────────────────────────
 const FLW_PUBLIC_KEY =
   process.env.NEXT_PUBLIC_FLW_PUBLIC_KEY ||
-  "FLWPUBK-70eccb05066294d46ac7c41d6138a48d-X";
+  "FLWPUBK-2733229abd28fd35643c221ef77b8940-X";
 
 // Load Flutterwave inline JS dynamically
 function loadFlutterwave(): Promise<void> {
