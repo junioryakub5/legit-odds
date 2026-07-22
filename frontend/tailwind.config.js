@@ -9,11 +9,11 @@ module.exports = {
     extend: {
       colors: {
         bg: {
-          primary:   "#050a18",
-          secondary: "#0a1628",
-          card:      "#0a1628",
-          elevated:  "#0f1f38",
-          deep:      "#162340",
+          primary:   "#09090b",
+          secondary: "#111117",
+          card:      "#111117",
+          elevated:  "#18181f",
+          deep:      "#1e1e27",
         },
         accent: {
           DEFAULT: "#f59e0b",
@@ -41,9 +41,9 @@ module.exports = {
         violet: "#8b5cf6",
       },
       fontFamily: {
-        sans:    ["Inter", "system-ui", "sans-serif"],
-        display: ["Outfit", "sans-serif"],
-        brand:   ["Outfit", "sans-serif"],
+        sans:    ["DM Sans", "system-ui", "sans-serif"],
+        display: ["Sora", "sans-serif"],
+        brand:   ["Sora", "sans-serif"],
       },
       animation: {
         "fade-up":    "fadeInUp 0.5s ease forwards",

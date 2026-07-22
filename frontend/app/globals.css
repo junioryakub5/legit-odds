@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,30 +6,30 @@
 
 /* ─── CSS Variables — Midnight Gold Theme ────────────────────────────────── */
 :root {
-  --bg:          #050a18;
-  --bg-2:        #0a1628;
-  --bg-3:        #0f1f38;
-  --bg-4:        #162340;
-  --border:      rgba(255,255,255,0.07);
-  --border-md:   rgba(255,255,255,0.12);
-  --border-lg:   rgba(255,255,255,0.18);
+  --bg:          #09090b;
+  --bg-2:        #111117;
+  --bg-3:        #18181f;
+  --bg-4:        #1e1e27;
+  --border:      rgba(255,255,255,0.06);
+  --border-md:   rgba(255,255,255,0.10);
+  --border-lg:   rgba(255,255,255,0.15);
   --accent:      #f59e0b;
   --accent-light:#fbbf24;
   --accent-dark: #d97706;
-  --accent-dim:  rgba(245,158,11,0.1);
-  --accent-glow: rgba(245,158,11,0.25);
-  --accent-border: rgba(245,158,11,0.35);
+  --accent-dim:  rgba(245,158,11,0.08);
+  --accent-glow: rgba(245,158,11,0.20);
+  --accent-border: rgba(245,158,11,0.30);
   --blue:        #3b82f6;
   --blue-dim:    rgba(59,130,246,0.08);
-  --blue-glow:   rgba(59,130,246,0.2);
+  --blue-glow:   rgba(59,130,246,0.15);
   --green:       #10b981;
   --green-dim:   rgba(16,185,129,0.08);
   --red:         #ef4444;
   --red-dim:     rgba(239,68,68,0.08);
   --purple:      #8b5cf6;
-  --text-1:      #f8fafc;
-  --text-2:      #94a3b8;
-  --text-3:      #475569;
+  --text-1:      #f4f4f5;
+  --text-2:      #a1a1aa;
+  --text-3:      #52525b;
   --radius:      14px;
 }
 
@@ -40,7 +40,7 @@
   html { scroll-behavior: smooth; overflow-x: hidden; }
 
   body {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'DM Sans', system-ui, sans-serif;
     background: var(--bg);
     color: var(--text-1);
     -webkit-font-smoothing: antialiased;
@@ -50,8 +50,8 @@
 
   ::selection { background: var(--accent-dim); color: var(--text-1); }
 
-  ::-webkit-scrollbar { width: 6px; height: 6px; }
-  ::-webkit-scrollbar-track { background: var(--bg-2); }
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--bg-4); border-radius: 99px; }
   ::-webkit-scrollbar-thumb:hover { background: var(--border-md); }
 }
@@ -73,11 +73,11 @@
     transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
   }
   .card:hover {
-    border-color: rgba(245,158,11,0.2);
-    box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(245,158,11,0.08);
+    border-color: rgba(245,158,11,0.18);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(245,158,11,0.06);
   }
   .card-glass {
-    background: rgba(10,22,40,0.7);
+    background: rgba(17,17,23,0.80);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--border);
@@ -93,14 +93,14 @@
     border: none;
     cursor: pointer;
     transition: all 0.25s;
-    box-shadow: 0 4px 20px rgba(245,158,11,0.35);
+    box-shadow: 0 4px 20px rgba(245,158,11,0.30);
     letter-spacing: 0.02em;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Sora', sans-serif;
   }
   .btn-gold:hover:not(:disabled) {
     transform: translateY(-1px);
-    box-shadow: 0 8px 32px rgba(245,158,11,0.5);
-    filter: brightness(1.08);
+    box-shadow: 0 8px 32px rgba(245,158,11,0.45);
+    filter: brightness(1.06);
   }
   .btn-gold:active:not(:disabled) { transform: translateY(0); }
   .btn-gold:disabled { opacity: 0.5; cursor: not-allowed; }
@@ -110,38 +110,92 @@
     color: var(--accent);
     font-weight: 600;
     border-radius: 12px;
-    border: 1px solid rgba(245,158,11,0.35);
+    border: 1px solid rgba(245,158,11,0.30);
     cursor: pointer;
     transition: all 0.25s;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Sora', sans-serif;
     padding: 0.6rem 1.6rem;
     display: inline-block;
     text-decoration: none;
   }
   .btn-outline-gold:hover {
-    background: rgba(245,158,11,0.08);
+    background: rgba(245,158,11,0.07);
     border-color: var(--accent);
-    box-shadow: 0 4px 20px rgba(245,158,11,0.15);
+    box-shadow: 0 4px 20px rgba(245,158,11,0.12);
     transform: translateY(-1px);
   }
+
+  /* ── Admin Buttons ── */
+  .btn-primary {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #000;
+    font-weight: 700;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 0.55rem 1.25rem;
+    font-size: 0.85rem;
+    font-family: 'Sora', sans-serif;
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 16px rgba(245,158,11,0.25);
+  }
+  .btn-primary:hover:not(:disabled) {
+    box-shadow: 0 6px 24px rgba(245,158,11,0.4);
+    transform: translateY(-1px);
+  }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text-3);
+    font-weight: 600;
+    border-radius: 10px;
+    border: 1px solid var(--border-md);
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 0.55rem 1.25rem;
+    font-size: 0.85rem;
+    font-family: 'Sora', sans-serif;
+  }
+  .btn-outline:hover { color: var(--text-1); border-color: var(--border-lg); }
 
   /* ── Inputs ── */
   .input-field {
     width: 100%;
-    background: rgba(5,10,24,0.8);
+    background: rgba(9,9,11,0.85);
     border: 1px solid var(--border-md);
     border-radius: 10px;
     padding: 0.65rem 0.85rem;
     color: var(--text-1);
     font-size: 0.875rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     transition: border-color 0.2s, box-shadow 0.2s;
     outline: none;
   }
   .input-field::placeholder { color: var(--text-3); }
   .input-field:focus {
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(245,158,11,0.12);
+    box-shadow: 0 0 0 3px rgba(245,158,11,0.10);
+  }
+
+  /* ── Admin inputs ── */
+  .admin-input {
+    width: 100%;
+    background: rgba(9,9,11,0.7);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.55rem 0.75rem;
+    color: var(--text-1);
+    font-size: 0.85rem;
+    font-family: 'DM Sans', sans-serif;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+  .admin-input::placeholder { color: var(--text-3); }
+  .admin-input:focus {
+    border-color: rgba(245,158,11,0.5);
+    box-shadow: 0 0 0 2px rgba(245,158,11,0.08);
   }
 
   /* ── Nav Links ── */
@@ -151,19 +205,19 @@
     font-weight: 500;
     text-decoration: none;
     transition: color 0.2s;
-    font-family: 'Inter', sans-serif;
+    font-family: 'DM Sans', sans-serif;
   }
   .nav-link:hover { color: var(--text-1); }
-  .nav-link.active { color: var(--accent); }
+  .nav-link.active { color: var(--text-1); }
 
   /* ── Section Divider Glow Line ── */
   .glow-line {
     height: 1px;
     background: linear-gradient(90deg,
       transparent 0%,
-      rgba(245,158,11,0.15) 25%,
-      rgba(245,158,11,0.4) 50%,
-      rgba(245,158,11,0.15) 75%,
+      rgba(245,158,11,0.10) 25%,
+      rgba(245,158,11,0.30) 50%,
+      rgba(245,158,11,0.10) 75%,
       transparent 100%
     );
   }
@@ -191,14 +245,14 @@
     font-weight: 800;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Sora', sans-serif;
   }
 }
 
 /* ─── Utility Layer ───────────────────────────────────────────────────────── */
 @layer utilities {
-  .font-display { font-family: 'Outfit', sans-serif; }
-  .font-brand   { font-family: 'Outfit', sans-serif; }
+  .font-display { font-family: 'Sora', sans-serif; }
+  .font-brand   { font-family: 'Sora', sans-serif; }
 
   /* Scrollbar hide */
   .scrollbar-none { scrollbar-width: none; }
@@ -218,7 +272,7 @@
 
 /* ─── Keyframes ───────────────────────────────────────────────────────────── */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(22px); }
+  from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes fadeIn {

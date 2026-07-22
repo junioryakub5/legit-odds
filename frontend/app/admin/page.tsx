@@ -162,18 +162,18 @@ function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
         {/* ── Glassmorphism card ── */}
         <div
           style={{
-            background: "rgba(17,17,23,0.85)",
-            border: "1px solid rgba(245,158,11,0.15)",
+            background: "rgba(9,9,11,0.92)",
+            border: "1px solid rgba(255,255,255,0.08)",
             borderRadius: "24px",
-            boxShadow: "0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04) inset",
-            backdropFilter: "blur(20px)",
+            boxShadow: "0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04) inset",
+            backdropFilter: "blur(24px)",
             overflow: "hidden",
           }}
         >
-          {/* Top green accent bar */}
+          {/* Gold gradient top bar */}
           <div style={{
             height: "3px",
-            background: "linear-gradient(90deg, #f59e0b, #f59e0b, #fcd34d)",
+            background: "linear-gradient(90deg, #f59e0b, #fbbf24, #f59e0b)",
           }} />
 
           <div className="p-8">
@@ -363,10 +363,10 @@ function OverviewSection({ token }: { token: string }) {
   );
 
   const statCards = [
-    { label: "Total Predictions", value: stats.totalSlips, icon: FileText, iconColor: "#f59e0b", iconBg: "rgba(245,158,11,0.1)", iconBorder: "rgba(245,158,11,0.2)" },
-    { label: "Active Slips", value: stats.activeSlips, icon: Activity, iconColor: "#f59e0b", iconBg: "rgba(245,158,11,0.1)", iconBorder: "rgba(245,158,11,0.2)" },
-    { label: "Total Revenue", value: `GHS ${stats.totalRevenue.toFixed(2)}`, icon: DollarSign, iconColor: "#fcd34d", iconBg: "rgba(251,191,36,0.1)", iconBorder: "rgba(251,191,36,0.2)" },
-    { label: "Win Rate", value: `${stats.totalSales > 0 ? Math.round((stats.completedSlips / stats.totalSlips) * 100) : 0}%`, icon: TrendingUp, iconColor: "#f59e0b", iconBg: "rgba(245,158,11,0.1)", iconBorder: "rgba(245,158,11,0.2)" },
+    { label: "Total Predictions", value: stats.totalSlips, icon: FileText, iconColor: "#f59e0b", iconBg: "rgba(245,158,11,0.08)", iconBorder: "rgba(245,158,11,0.18)" },
+    { label: "Active Slips", value: stats.activeSlips, icon: Activity, iconColor: "#10b981", iconBg: "rgba(16,185,129,0.08)", iconBorder: "rgba(16,185,129,0.18)" },
+    { label: "Total Revenue", value: `GHS ${stats.totalRevenue.toFixed(2)}`, icon: DollarSign, iconColor: "#fbbf24", iconBg: "rgba(251,191,36,0.08)", iconBorder: "rgba(251,191,36,0.18)" },
+    { label: "Win Rate", value: `${stats.totalSales > 0 ? Math.round((stats.completedSlips / stats.totalSlips) * 100) : 0}%`, icon: TrendingUp, iconColor: "#a78bfa", iconBg: "rgba(167,139,250,0.08)", iconBorder: "rgba(167,139,250,0.18)" },
   ];
 
   return (
@@ -377,38 +377,37 @@ function OverviewSection({ token }: { token: string }) {
           <div
             key={s.label}
             style={{
-              background: "rgba(17,17,23,0.8)",
+              background: "rgba(9,9,11,0.8)",
               border: "1px solid rgba(255,255,255,0.06)",
               borderRadius: "16px",
               padding: "1.25rem",
-              backdropFilter: "blur(10px)",
-              transition: "border-color 0.2s",
+              backdropFilter: "blur(12px)",
+              transition: "border-color 0.2s, transform 0.2s",
             }}
-            onMouseEnter={e => (e.currentTarget.style.borderColor = s.iconBorder)}
-            onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)")}
+            onMouseEnter={e => { (e.currentTarget.style.borderColor = s.iconBorder); (e.currentTarget.style.transform = "translateY(-2px)"); }}
+            onMouseLeave={e => { (e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)"); (e.currentTarget.style.transform = "translateY(0)"); }}
           >
             <div className="flex items-center justify-between mb-4">
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center"
-                style={{ background: s.iconBg, border: `1px solid ${s.iconBorder}`, boxShadow: `0 0 16px ${s.iconBg}` }}
+                style={{ background: s.iconBg, border: `1px solid ${s.iconBorder}` }}
               >
                 <s.icon size={18} style={{ color: s.iconColor }} />
               </div>
             </div>
             <div
               style={{
-                fontFamily: "'Outfit', sans-serif",
+                fontFamily: "'Sora', sans-serif",
                 fontWeight: 800,
                 fontSize: "1.6rem",
                 color: s.iconColor,
                 lineHeight: 1,
                 marginBottom: "6px",
-                filter: `drop-shadow(0 0 8px ${s.iconBg})`,
               }}
             >
               {s.value}
             </div>
-            <div style={{ fontSize: "0.75rem", color: "#52525b", fontWeight: 600, letterSpacing: "0.03em" }}>
+            <div style={{ fontSize: "0.75rem", color: "#52525b", fontWeight: 600, letterSpacing: "0.03em", fontFamily: "'DM Sans', sans-serif" }}>
               {s.label}
             </div>
           </div>
@@ -418,7 +417,7 @@ function OverviewSection({ token }: { token: string }) {
       {/* Revenue breakdown row: Ghana + Nigeria */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Ghana Payments */}
-        <div style={{ background: "rgba(17,17,23,0.8)", border: "1px solid rgba(245,158,11,0.12)", borderRadius: "16px", padding: "1.25rem", backdropFilter: "blur(10px)" }}>
+        <div style={{ background: "rgba(9,9,11,0.8)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "16px", padding: "1.25rem", backdropFilter: "blur(12px)" }}>
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <div style={{ width: 32, height: 32, borderRadius: 10, background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -439,7 +438,7 @@ function OverviewSection({ token }: { token: string }) {
         </div>
 
         {/* Nigeria Payments */}
-        <div style={{ background: "rgba(17,17,23,0.8)", border: "1px solid rgba(245,158,11,0.12)", borderRadius: "16px", padding: "1.25rem", backdropFilter: "blur(10px)" }}>
+        <div style={{ background: "rgba(9,9,11,0.8)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "16px", padding: "1.25rem", backdropFilter: "blur(12px)" }}>
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <div style={{ width: 32, height: 32, borderRadius: 10, background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -464,7 +463,7 @@ function OverviewSection({ token }: { token: string }) {
       <div
         className="rounded-2xl overflow-hidden"
         style={{
-          background: "#0a1628",
+          background: "#111117",
           border: "1px solid rgba(255,255,255,0.06)",
         }}
       >
@@ -614,13 +613,13 @@ function SlipModal({
       {/* Backdrop */}
       <div
         className="absolute inset-0 backdrop-blur-sm"
-        style={{ background: "rgba(0,0,0,0.75)" }}
+        style={{ background: "rgba(0,0,0,0.80)" }}
       />
       {/* Modal card */}
       <div
         className="relative w-full max-w-2xl rounded-2xl overflow-y-auto max-h-[90vh]"
         style={{
-          background: "#0a1628",
+          background: "#111117",
           border: "1px solid rgba(255,255,255,0.08)",
         }}
         onClick={(e) => e.stopPropagation()}
@@ -629,7 +628,7 @@ function SlipModal({
         <div
           className="flex items-center justify-between px-6 py-4 sticky top-0 z-10"
           style={{
-            background: "#0a1628",
+            background: "#111117",
             borderBottom: "1px solid rgba(255,255,255,0.07)",
           }}
         >
@@ -1162,16 +1161,16 @@ function ManageSlipsSection({ token }: { token: string }) {
           {/* Filter pills */}
           <div
             className="flex items-center gap-1 p-1 rounded-xl"
-            style={{ background: "#0f1f38", border: "1px solid rgba(255,255,255,0.07)" }}
+            style={{ background: "#111117", border: "1px solid rgba(255,255,255,0.07)" }}
           >
             {(["all", "active", "completed"] as const).map((f) => (
               <button
                 key={f}
                 onClick={() => { setStatusFilter(f); setPage(1); }}
-                className="px-3 py-1.5 rounded-lg text-xs font-semibold capitalize transition-colors"
+                className="px-3 py-1.5 rounded-lg text-xs font-semibold capitalize transition-all duration-150"
                 style={
                   statusFilter === f
-                    ? { background: "#ff4500", color: "#ffffff" }
+                    ? { background: "linear-gradient(135deg,#f59e0b,#d97706)", color: "#ffffff", boxShadow: "0 2px 10px rgba(245,158,11,0.3)" }
                     : { background: "transparent", color: "#52525b" }
                 }
               >
@@ -1222,7 +1221,7 @@ function ManageSlipsSection({ token }: { token: string }) {
                   key={slip._id}
                   className="px-4 py-4 flex items-center gap-3"
                   style={{
-                    background: idx % 2 === 0 ? "#0a1628" : "#131318",
+                    background: idx % 2 === 0 ? "#111117" : "#131318",
                     borderBottom: "1px solid rgba(255,255,255,0.04)",
                   }}
                 >
@@ -1248,7 +1247,7 @@ function ManageSlipsSection({ token }: { token: string }) {
                       title="Edit"
                       className="p-2 rounded-lg transition-colors"
                       style={{ color: "#52525b" }}
-                      onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#ff4500")}
+                      onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#f59e0b")}
                       onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "#52525b")}
                     >
                       <Pencil size={15} />
@@ -1296,7 +1295,7 @@ function ManageSlipsSection({ token }: { token: string }) {
             <div className="hidden md:block overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr style={{ background: "#0f1f38", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+                  <tr style={{ background: "#111117", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
                     {["Title", "Odds", "Price", "Status", "Result", "Actions"].map((h) => (
                       <th
                         key={h}
@@ -1313,7 +1312,7 @@ function ManageSlipsSection({ token }: { token: string }) {
                     <tr
                       key={slip._id}
                       style={{
-                        background: idx % 2 === 0 ? "#0a1628" : "#131318",
+                        background: idx % 2 === 0 ? "#111117" : "#131318",
                         borderBottom: "1px solid rgba(255,255,255,0.04)",
                       }}
                     >
@@ -1487,14 +1486,14 @@ function PaymentsSection({ token }: { token: string }) {
       <div
         className="admin-card overflow-hidden"
         style={{
-          background: "#0a1628",
+          background: "#111117",
           border: "1px solid rgba(255,255,255,0.06)",
           borderRadius: "16px",
         }}
       >
         {loading ? (
           <div className="flex items-center justify-center py-24">
-            <Loader2 size={28} className="animate-spin" style={{ color: "#ff4500" }} />
+            <Loader2 size={28} className="animate-spin" style={{ color: "#f59e0b" }} />
           </div>
         ) : filtered.length === 0 ? (
           <div className="py-16 text-center text-sm" style={{ color: "#52525b" }}>
@@ -1509,7 +1508,7 @@ function PaymentsSection({ token }: { token: string }) {
                   key={pmt._id}
                   className="px-4 py-4"
                   style={{
-                    background: idx % 2 === 0 ? "#0a1628" : "#131318",
+                    background: idx % 2 === 0 ? "#111117" : "#131318",
                     borderBottom: "1px solid rgba(255,255,255,0.04)",
                   }}
                 >
@@ -1518,9 +1517,9 @@ function PaymentsSection({ token }: { token: string }) {
                       <div
                         className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
                         style={{
-                          background: "rgba(255,69,0,0.15)",
-                          color: "#ff4500",
-                          border: "1px solid rgba(255,69,0,0.25)",
+                          background: "rgba(245,158,11,0.12)",
+                          color: "#f59e0b",
+                          border: "1px solid rgba(245,158,11,0.22)",
                         }}
                       >
                         {pmt.email[0].toUpperCase()}
@@ -1559,7 +1558,7 @@ function PaymentsSection({ token }: { token: string }) {
             <div className="hidden md:block overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr style={{ background: "#0f1f38", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+                  <tr style={{ background: "#111117", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
                     {["Customer", "Slip", "Reference", "Amount", "Status", "Date"].map((h) => (
                       <th
                         key={h}
@@ -1576,7 +1575,7 @@ function PaymentsSection({ token }: { token: string }) {
                     <tr
                       key={pmt._id}
                       style={{
-                        background: idx % 2 === 0 ? "#0a1628" : "#131318",
+                        background: idx % 2 === 0 ? "#111117" : "#131318",
                         borderBottom: "1px solid rgba(255,255,255,0.04)",
                       }}
                     >
@@ -1585,9 +1584,9 @@ function PaymentsSection({ token }: { token: string }) {
                           <div
                             className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
                             style={{
-                              background: "rgba(255,69,0,0.15)",
-                              color: "#ff4500",
-                              border: "1px solid rgba(255,69,0,0.25)",
+                              background: "rgba(245,158,11,0.12)",
+                              color: "#f59e0b",
+                              border: "1px solid rgba(245,158,11,0.22)",
                             }}
                           >
                             {pmt.email[0].toUpperCase()}
@@ -1693,7 +1692,7 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
           <div>
             <div
               style={{
-                fontFamily: "'Outfit', sans-serif",
+                fontFamily: "'Sora', sans-serif",
                 fontWeight: 700,
                 fontSize: "0.95rem",
                 letterSpacing: "-0.02em",
@@ -1707,7 +1706,7 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
               className="text-[10px] mt-0.5"
               style={{
                 color: "#52525b",
-                fontFamily: "'Outfit', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
                 fontWeight: 500,
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
@@ -1737,17 +1736,17 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
             style={
               section === item.id
                 ? {
-                    background: "rgba(245,158,11,0.1)",
+                    background: "rgba(245,158,11,0.08)",
                     color: "#f59e0b",
-                    border: "1px solid rgba(245,158,11,0.2)",
-                    fontFamily: "'Outfit', sans-serif",
+                    border: "1px solid rgba(245,158,11,0.18)",
+                    fontFamily: "'Sora', sans-serif",
                     fontWeight: 600,
                     letterSpacing: "0.02em",
                   }
                 : {
                     color: "#52525b",
                     border: "1px solid transparent",
-                    fontFamily: "'Outfit', sans-serif",
+                    fontFamily: "'Sora', sans-serif",
                     fontWeight: 600,
                     letterSpacing: "0.02em",
                   }
@@ -1766,7 +1765,7 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
           className="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm transition-all"
           style={{
             color: "#52525b",
-            fontFamily: "'Outfit', sans-serif",
+            fontFamily: "'Sora', sans-serif",
             fontWeight: 600,
             letterSpacing: "0.02em",
             border: "1px solid transparent",
@@ -1790,7 +1789,7 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
   return (
     <div
       className="min-h-screen flex flex-col md:flex-row"
-      style={{ background: "#050a18" }}
+      style={{ background: "#09090b" }}
     >
       {/* ── Mobile drawer overlay ── */}
       {drawerOpen && (
@@ -1805,12 +1804,12 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
       <div
         className={`fixed top-0 left-0 h-full z-50 flex flex-col w-72 transition-transform duration-300 md:hidden ${drawerOpen ? "translate-x-0" : "-translate-x-full"}`}
         style={{
-          background: "#0e0e14",
-          borderRight: "1px solid rgba(245,158,11,0.1)",
+          background: "#0d0d11",
+          borderRight: "1px solid rgba(255,255,255,0.06)",
         }}
       >
-        {/* Green gradient top line */}
-        <div style={{ height: "3px", background: "linear-gradient(90deg,#f59e0b,#f59e0b,#fcd34d)", flexShrink: 0 }} />
+        {/* Gold gradient top line */}
+        <div style={{ height: "3px", background: "linear-gradient(90deg,#f59e0b,#fbbf24,#f59e0b)", flexShrink: 0 }} />
         <SidebarContent />
       </div>
 
@@ -1818,13 +1817,13 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
       <aside
         className="hidden md:flex flex-shrink-0 flex-col"
         style={{
-          background: "#0e0e14",
-          borderRight: "1px solid rgba(245,158,11,0.1)",
+          background: "#0d0d11",
+          borderRight: "1px solid rgba(255,255,255,0.06)",
           width: "224px",
         }}
       >
-        {/* Green gradient top line */}
-        <div style={{ height: "3px", background: "linear-gradient(90deg,#f59e0b,#f59e0b,#fcd34d)", flexShrink: 0 }} />
+        {/* Gold gradient top line */}
+        <div style={{ height: "3px", background: "linear-gradient(90deg,#f59e0b,#fbbf24,#f59e0b)", flexShrink: 0 }} />
         <SidebarContent />
       </aside>
 
@@ -1835,7 +1834,7 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
         <header
           className="md:hidden flex items-center justify-between px-4 py-3 sticky top-0 z-30"
           style={{
-            background: "rgba(9,9,11,0.9)",
+            background: "rgba(9,9,11,0.92)",
             borderBottom: "1px solid rgba(255,255,255,0.06)",
             backdropFilter: "saturate(180%) blur(20px)",
           }}
@@ -1853,14 +1852,14 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
           </button>
           <div
             style={{
-              fontFamily: "'Outfit', sans-serif",
+              fontFamily: "'Sora', sans-serif",
               fontWeight: 700,
               fontSize: "1rem",
               letterSpacing: "-0.02em",
               color: "#f4f4f5",
             }}
           >
-            365 <span style={{ color: "#f59e0b" }}>Analyst</span>
+            LEGIT <span style={{ color: "#f59e0b" }}>ODDS</span>
           </div>
           <button
             onClick={onLogout}
@@ -1903,8 +1902,8 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
         <nav
           className="md:hidden fixed bottom-0 left-0 right-0 z-30 flex"
           style={{
-            background: "#0a1628",
-            borderTop: "1px solid rgba(255,255,255,0.07)",
+            background: "#111117",
+            borderTop: "1px solid rgba(255,255,255,0.06)",
             backdropFilter: "saturate(180%) blur(20px)",
           }}
         >

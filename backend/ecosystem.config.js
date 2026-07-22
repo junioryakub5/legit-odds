@@ -1,16 +1,17 @@
 module.exports = {
-  apps: [
-    {
-      name        : 'legitodds-api',
-      script      : 'server.js',
-      instances   : 1,
-      autorestart : true,
-      watch       : false,
-      max_memory_restart: '512M',
-      env: {
-        NODE_ENV : 'production',
-        PORT     : 8181,
-      },
+  apps: [{
+    name:        'legit-odds-api',
+    script:      'server.js',
+    cwd:         '/var/www/legit-odds/backend',
+    instances:   1,
+    exec_mode:   'fork',
+    watch:       false,
+    env: {
+      NODE_ENV: 'production',
+      PORT:     5007,
     },
-  ],
+    error_file:  '/var/log/pm2/legit-odds-error.log',
+    out_file:    '/var/log/pm2/legit-odds-out.log',
+    log_date_format: 'YYYY-MM-DD HH:mm:ss',
+  }],
 };

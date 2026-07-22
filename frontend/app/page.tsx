@@ -73,34 +73,34 @@ export default function HomePage() {
     <>
       <Navbar />
 
-      <main className="min-h-screen" style={{ background: "var(--bg, #050a18)" }}>
+      <main className="min-h-screen" style={{ background: "var(--bg, #09090b)" }}>
 
         {/* ── Hero ── */}
         <section
           className="pt-20 pb-6 relative overflow-hidden"
-          style={{ background: "#050a18", display: "flex", flexDirection: "column", justifyContent: "center" }}
+          style={{ background: "#09090b", display: "flex", flexDirection: "column", justifyContent: "center" }}
         >
           {/* ── Background atmosphere ── */}
           <div className="pointer-events-none absolute inset-0" aria-hidden="true">
             {/* Primary top-right gold orb */}
             <div style={{
-              position: "absolute", top: "-15%", right: "-5%",
-              width: "750px", height: "750px", borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(245,158,11,0.12) 0%, rgba(245,158,11,0.04) 45%, transparent 70%)",
-              filter: "blur(70px)",
-            }} />
-            {/* Secondary bottom-left blue orb */}
-            <div style={{
-              position: "absolute", bottom: "5%", left: "-10%",
-              width: "500px", height: "500px", borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(59,130,246,0.07) 0%, rgba(59,130,246,0.02) 50%, transparent 70%)",
+              position: "absolute", top: "-10%", right: "-5%",
+              width: "700px", height: "700px", borderRadius: "50%",
+              background: "radial-gradient(circle, rgba(245,158,11,0.14) 0%, rgba(245,158,11,0.04) 45%, transparent 70%)",
               filter: "blur(60px)",
+            }} />
+            {/* Secondary bottom-left warm orb */}
+            <div style={{
+              position: "absolute", bottom: "10%", left: "-10%",
+              width: "500px", height: "500px", borderRadius: "50%",
+              background: "radial-gradient(circle, rgba(251,146,60,0.08) 0%, rgba(251,146,60,0.02) 50%, transparent 70%)",
+              filter: "blur(50px)",
             }} />
             {/* Center glow */}
             <div style={{
-              position: "absolute", top: "35%", left: "50%", transform: "translateX(-50%)",
-              width: "900px", height: "300px", borderRadius: "50%",
-              background: "radial-gradient(ellipse, rgba(245,158,11,0.05) 0%, transparent 70%)",
+              position: "absolute", top: "30%", left: "50%", transform: "translateX(-50%)",
+              width: "800px", height: "300px", borderRadius: "50%",
+              background: "radial-gradient(ellipse, rgba(245,158,11,0.06) 0%, transparent 70%)",
               filter: "blur(40px)",
             }} />
             {/* Grid pattern */}
@@ -109,13 +109,6 @@ export default function HomePage() {
               backgroundImage: "linear-gradient(rgba(245,158,11,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(245,158,11,0.025) 1px, transparent 1px)",
               backgroundSize: "80px 80px",
               maskImage: "radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%)",
-            }} />
-            {/* Diagonal light ray */}
-            <div style={{
-              position: "absolute", top: 0, left: "30%",
-              width: "1px", height: "60%",
-              background: "linear-gradient(180deg, rgba(245,158,11,0.15) 0%, transparent 100%)",
-              transform: "rotate(15deg)",
             }} />
           </div>
 
@@ -127,10 +120,10 @@ export default function HomePage() {
                 className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full text-xs font-bold tracking-widest uppercase"
                 style={{
                   background: "rgba(245,158,11,0.07)",
-                  border: "1px solid rgba(245,158,11,0.25)",
+                  border: "1px solid rgba(245,158,11,0.22)",
                   color: "#f59e0b",
                   backdropFilter: "blur(8px)",
-                  fontFamily: "Outfit, sans-serif",
+                  fontFamily: "'Sora', sans-serif",
                 }}
               >
                 <span style={{
@@ -148,12 +141,12 @@ export default function HomePage() {
             <h1
               className="animate-fadeInUp"
               style={{
-                fontFamily: "'Outfit', sans-serif",
+                fontFamily: "'Sora', sans-serif",
                 fontWeight: 900,
                 fontSize: "clamp(2.2rem, 7vw, 5.5rem)",
                 lineHeight: 1.0,
                 letterSpacing: "-0.03em",
-                color: "#f8fafc",
+                color: "#f4f4f5",
                 maxWidth: "900px",
                 marginBottom: "1.5rem",
                 textTransform: "uppercase",
@@ -165,7 +158,7 @@ export default function HomePage() {
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
-                filter: "drop-shadow(0 0 30px rgba(245,158,11,0.5))",
+                filter: "drop-shadow(0 0 30px rgba(245,158,11,0.45))",
                 display: "inline-block",
               }}>
                 UNLUCKY
@@ -173,13 +166,13 @@ export default function HomePage() {
               <br />
               <span style={{
                 fontSize: "clamp(1.6rem, 5.5vw, 4.2rem)",
-                color: "#64748b",
+                color: "#a1a1aa",
                 fontWeight: 700,
                 letterSpacing: "-0.02em",
               }}>
                 FOR{" "}
                 <span style={{
-                  color: "#f8fafc",
+                  color: "#f4f4f5",
                   fontWeight: 900,
                   fontSize: "clamp(2.2rem, 7vw, 5.5rem)",
                 }}>
@@ -193,13 +186,13 @@ export default function HomePage() {
             <p
               className="animate-fadeInUp"
               style={{
-                color: "#475569",
+                color: "#52525b",
                 fontSize: "clamp(0.85rem, 2vw, 1.05rem)",
                 maxWidth: "420px",
                 lineHeight: 1.65,
                 marginBottom: "3rem",
                 fontWeight: 500,
-                fontFamily: "Inter, sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
               }}
             >
               Expert-verified football tips. Unlock the slip, place the bet,{" "}
@@ -209,21 +202,21 @@ export default function HomePage() {
             {/* Stats row */}
             <div className="flex items-center justify-center gap-2 mb-6 animate-fadeInUp w-full">
               {[
-                { value: "87%", label: "Win Rate", color: "#f59e0b", glow: "rgba(245,158,11,0.4)", bg: "rgba(245,158,11,0.06)", border: "rgba(245,158,11,0.15)" },
-                { value: "500+", label: "Predictions", color: "#3b82f6", glow: "rgba(59,130,246,0.35)", bg: "rgba(59,130,246,0.06)", border: "rgba(59,130,246,0.15)" },
-                { value: "100%", label: "Verified", color: "#10b981", glow: "rgba(16,185,129,0.35)", bg: "rgba(16,185,129,0.06)", border: "rgba(16,185,129,0.15)" },
+                { value: "87%", label: "Win Rate", color: "#f59e0b", glow: "rgba(245,158,11,0.3)" },
+                { value: "500+", label: "Predictions", color: "#10b981", glow: "rgba(16,185,129,0.3)" },
+                { value: "100%", label: "Verified", color: "#34d399", glow: "rgba(52,211,153,0.3)" },
               ].map((stat) => (
                 <div
                   key={stat.label}
                   className="flex flex-col items-center gap-0.5 flex-1 py-4 rounded-2xl transition-all duration-300 hover:-translate-y-1"
                   style={{
-                    background: stat.bg,
-                    border: `1px solid ${stat.border}`,
+                    background: "rgba(255,255,255,0.04)",
+                    border: "1px solid rgba(255,255,255,0.07)",
                   }}
                 >
                   <span
                     style={{
-                      fontFamily: "'Outfit', sans-serif",
+                      fontFamily: "'Sora', sans-serif",
                       fontWeight: 900,
                       fontSize: "clamp(1.2rem, 4vw, 1.8rem)",
                       color: stat.color,
@@ -239,9 +232,9 @@ export default function HomePage() {
                       fontWeight: 700,
                       letterSpacing: "0.1em",
                       textTransform: "uppercase",
-                      color: "#334155",
+                      color: "#3f3f46",
                       marginTop: "4px",
-                      fontFamily: "Inter, sans-serif",
+                      fontFamily: "'DM Sans', sans-serif",
                     }}
                   >
                     {stat.label}
@@ -253,7 +246,7 @@ export default function HomePage() {
             {/* Filter label */}
             <div
               className="flex items-center justify-center gap-2 text-xs mb-3 animate-fadeInUp"
-              style={{ color: "#334155", letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 600, fontFamily: "Inter, sans-serif" }}
+              style={{ color: "#3f3f46", letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 600, fontFamily: "'DM Sans', sans-serif" }}
             >
               <Filter size={12} />
               <span>Filter by odds</span>
@@ -263,7 +256,7 @@ export default function HomePage() {
             <div className="relative w-full animate-fadeInUp">
               <div
                 className="pointer-events-none absolute right-0 top-0 h-full w-12 z-10 md:hidden"
-                style={{ background: "linear-gradient(to right, transparent, #050a18)" }}
+                style={{ background: "linear-gradient(to right, transparent, #09090b)" }}
                 aria-hidden="true"
               />
               <div
@@ -279,18 +272,18 @@ export default function HomePage() {
                       activeFilter === tab.value
                         ? {
                             background: "linear-gradient(135deg, #f59e0b, #d97706)",
-                            color: "#0a0500",
+                            color: "#ffffff",
                             borderColor: "transparent",
-                            boxShadow: "0 4px 20px rgba(245,158,11,0.45)",
+                            boxShadow: "0 4px 20px rgba(245,158,11,0.40)",
                             letterSpacing: "0.04em",
-                            fontFamily: "Outfit, sans-serif",
+                            fontFamily: "'Sora', sans-serif",
                           }
                         : {
-                            background: "rgba(245,158,11,0.04)",
-                            color: "#475569",
-                            borderColor: "rgba(245,158,11,0.1)",
+                            background: "rgba(255,255,255,0.03)",
+                            color: "#52525b",
+                            borderColor: "rgba(255,255,255,0.06)",
                             letterSpacing: "0.04em",
-                            fontFamily: "Outfit, sans-serif",
+                            fontFamily: "'Sora', sans-serif",
                           }
                     }
                   >
@@ -305,7 +298,7 @@ export default function HomePage() {
         {/* ── Cards Grid ── */}
         <section
           className="pb-20 relative z-10"
-          style={{ background: "#050a18" }}
+          style={{ background: "#09090b" }}
         >
           <div className="page-container pt-4">
             {loading ? (
@@ -319,7 +312,7 @@ export default function HomePage() {
                 >
                   <Loader2 size={26} style={{ color: "#f59e0b" }} className="animate-spin" />
                 </div>
-                <p style={{ color: "#475569", fontFamily: "Inter, sans-serif" }} className="text-sm">
+                <p style={{ color: "#52525b", fontFamily: "'DM Sans', sans-serif" }} className="text-sm">
                   Loading predictions...
                 </p>
               </div>
@@ -338,19 +331,19 @@ export default function HomePage() {
                 <div
                   className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5"
                   style={{
-                    background: "#0a1628",
-                    border: "1px solid rgba(255,255,255,0.07)",
+                    background: "#111117",
+                    border: "1px solid rgba(255,255,255,0.06)",
                   }}
                 >
-                  <CalendarX2 size={28} style={{ color: "#334155" }} />
+                  <CalendarX2 size={28} style={{ color: "#3f3f46" }} />
                 </div>
                 <p
                   className="text-lg mb-2 font-display font-semibold"
-                  style={{ color: "#94a3b8" }}
+                  style={{ color: "#a1a1aa" }}
                 >
                   No predictions available
                 </p>
-                <p className="text-sm" style={{ color: "#475569" }}>
+                <p className="text-sm" style={{ color: "#52525b" }}>
                   Check back soon — new tips are being prepared.
                 </p>
               </div>
@@ -380,7 +373,7 @@ export default function HomePage() {
         {/* ── Trust Section ── */}
         <section
           className="py-10 md:py-20 relative z-10"
-          style={{ background: "#050a18" }}
+          style={{ background: "#09090b" }}
         >
           {/* Glow line divider */}
           <div className="glow-line mb-10 md:mb-16" aria-hidden="true" />
@@ -391,7 +384,7 @@ export default function HomePage() {
               style={{
                 fontSize: "clamp(1.4rem,5vw,2.8rem)",
                 letterSpacing: "-0.03em",
-                color: "#f8fafc",
+                color: "#f4f4f5",
               }}
             >
               Why Trust{" "}
@@ -399,7 +392,7 @@ export default function HomePage() {
             </h2>
             <p
               className="text-xs md:text-sm max-w-md mx-auto mb-6 md:mb-14 leading-relaxed"
-              style={{ color: "#94a3b8", fontFamily: "Inter, sans-serif" }}
+              style={{ color: "#a1a1aa", fontFamily: "'DM Sans', sans-serif" }}
             >
               Expert-verified predictions. Secure payments via Paystack. Instant access.
             </p>
@@ -411,25 +404,25 @@ export default function HomePage() {
                   icon: <BarChart2 size={20} />,
                   title: "Expert Analysis",
                   desc: "Statistic-driven predictions backed by deep match research",
-                  color: "#f59e0b",
-                  iconBg: "rgba(245,158,11,0.08)",
-                  iconBorder: "rgba(245,158,11,0.2)",
+                  color: "#ff4500",
+                  iconBg: "rgba(255,69,0,0.08)",
+                  iconBorder: "rgba(255,69,0,0.18)",
                 },
                 {
                   icon: <ShieldCheck size={20} />,
                   title: "Secure Payments",
                   desc: "Paystack-powered payments — safe and instant",
-                  color: "#3b82f6",
-                  iconBg: "rgba(59,130,246,0.08)",
-                  iconBorder: "rgba(59,130,246,0.2)",
+                  color: "#10b981",
+                  iconBg: "rgba(16,185,129,0.08)",
+                  iconBorder: "rgba(16,185,129,0.18)",
                 },
                 {
                   icon: <Zap size={20} />,
                   title: "Instant Access",
                   desc: "Unlock your prediction immediately after payment",
-                  color: "#10b981",
-                  iconBg: "rgba(16,185,129,0.08)",
-                  iconBorder: "rgba(16,185,129,0.2)",
+                  color: "#f59e0b",
+                  iconBg: "rgba(245,158,11,0.08)",
+                  iconBorder: "rgba(245,158,11,0.18)",
                 },
               ].map((item) => (
                 <div
@@ -437,7 +430,7 @@ export default function HomePage() {
                   className="flex flex-col items-center text-center p-3 md:p-7 rounded-xl md:rounded-2xl
                     transition-all duration-300 hover:-translate-y-1 md:hover:-translate-y-2 group"
                   style={{
-                    background: "#0a1628",
+                    background: "#111117",
                     border: "1px solid rgba(255,255,255,0.06)",
                   }}
                 >
@@ -455,13 +448,13 @@ export default function HomePage() {
                   <div className="min-w-0">
                     <h3
                       className="font-display font-bold text-[11px] md:text-sm mb-0.5 md:mb-2 tracking-wide"
-                      style={{ color: "#f8fafc" }}
+                      style={{ color: "#f4f4f5" }}
                     >
                       {item.title}
                     </h3>
                     <p
                       className="text-[10px] md:text-xs leading-relaxed hidden md:block"
-                      style={{ color: "#94a3b8", fontFamily: "Inter, sans-serif" }}
+                      style={{ color: "#a1a1aa", fontFamily: "'DM Sans', sans-serif" }}
                     >
                       {item.desc}
                     </p>

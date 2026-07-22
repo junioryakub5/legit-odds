@@ -255,17 +255,17 @@ function CountrySelectModal({
       <div
         className="relative w-full max-w-sm overflow-y-auto"
         style={{
-          background: "rgba(14,14,20,0.95)",
-          border: "1px solid rgba(245,158,11,0.2)",
+          background: "rgba(9,9,11,0.96)",
+          border: "1px solid rgba(255,255,255,0.08)",
           borderRadius: "24px",
-          boxShadow: "0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04) inset",
-          backdropFilter: "blur(20px)",
+          boxShadow: "0 32px 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.04) inset",
+          backdropFilter: "blur(24px)",
           maxHeight: "90vh",
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Green gradient top bar */}
-        <div style={{ height: "3px", background: "linear-gradient(90deg,#f59e0b,#f59e0b,#fcd34d)", width: "100%" }} />
+        {/* Gold gradient top bar */}
+        <div style={{ height: "3px", background: "linear-gradient(90deg,#f59e0b,#fbbf24,#f59e0b)", width: "100%" }} />
 
         {/* Header */}
         <div className="px-6 pt-5 pb-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
@@ -497,21 +497,21 @@ function PaymentModal({
         className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
         style={{ overscrollBehavior: "contain" }}
       >
-        <div className="absolute inset-0 backdrop-blur-md" style={{ background: "rgba(0,0,0,0.75)" }} />
+        <div className="absolute inset-0 backdrop-blur-md" style={{ background: "rgba(0,0,0,0.80)" }} />
         <div
           className="relative w-full max-w-sm overflow-hidden flex flex-col items-center justify-center gap-5 py-14 px-8"
           style={{
-            background: "rgba(14,14,20,0.95)",
-            border: "1px solid rgba(245,158,11,0.2)",
+            background: "rgba(9,9,11,0.96)",
+            border: "1px solid rgba(255,255,255,0.08)",
             borderRadius: "24px",
-            boxShadow: "0 32px 80px rgba(0,0,0,0.7)",
-            backdropFilter: "blur(20px)",
+            boxShadow: "0 32px 80px rgba(0,0,0,0.8)",
+            backdropFilter: "blur(24px)",
           }}
         >
-          <div style={{ height: "3px", background: "linear-gradient(90deg,#f59e0b,#f59e0b,#fcd34d)", width: "100%", position: "absolute", top: 0, left: 0 }} />
+          <div style={{ height: "3px", background: "linear-gradient(90deg,#f59e0b,#fbbf24,#f59e0b)", width: "100%", position: "absolute", top: 0, left: 0 }} />
           <div
             className="w-16 h-16 rounded-2xl flex items-center justify-center"
-            style={{ background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.25)", boxShadow: "0 0 30px rgba(245,158,11,0.15)" }}
+            style={{ background: "rgba(245,158,11,0.08)", border: "1px solid rgba(245,158,11,0.22)", boxShadow: "0 0 30px rgba(245,158,11,0.12)" }}
           >
             <Loader2 size={28} style={{ color: "#f59e0b" }} className="animate-spin" />
           </div>
@@ -531,22 +531,22 @@ function PaymentModal({
       onClick={onClose}
       style={{ overscrollBehavior: "contain" }}
     >
-      <div className="absolute inset-0 backdrop-blur-md" style={{ background: "rgba(0,0,0,0.75)" }} />
+      <div className="absolute inset-0 backdrop-blur-md" style={{ background: "rgba(0,0,0,0.80)" }} />
 
       <div
         className="relative w-full max-w-sm overflow-y-auto"
         style={{
-          background: "rgba(14,14,20,0.95)",
-          border: "1px solid rgba(245,158,11,0.2)",
+          background: "rgba(9,9,11,0.96)",
+          border: "1px solid rgba(255,255,255,0.08)",
           borderRadius: "24px",
-          boxShadow: "0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04) inset",
-          backdropFilter: "blur(20px)",
+          boxShadow: "0 32px 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.04) inset",
+          backdropFilter: "blur(24px)",
           maxHeight: "90vh",
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Green gradient top bar */}
-        <div style={{ height: "3px", background: "linear-gradient(90deg,#f59e0b,#f59e0b,#fcd34d)", width: "100%" }} />
+        {/* Gold gradient top bar */}
+        <div style={{ height: "3px", background: "linear-gradient(90deg,#f59e0b,#fbbf24,#f59e0b)", width: "100%" }} />
 
         {/* Header */}
         <div className="px-6 pt-5 pb-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
@@ -796,12 +796,12 @@ function NigeriaPaymentModal({
   if (step === "verifying") {
     return ReactDOM.createPortal(
       <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4" style={{ overscrollBehavior: "contain" }}>
-        <div className="absolute inset-0 backdrop-blur-md" style={{ background: "rgba(10,14,23,0.7)" }} />
+        <div className="absolute inset-0 backdrop-blur-md" style={{ background: "rgba(0,0,0,0.80)" }} />
         <div
           className="relative w-full max-w-sm overflow-hidden shadow-2xl flex flex-col items-center justify-center gap-5 py-14 px-8"
-          style={{ background: "rgba(14,14,20,0.95)", border: "1px solid rgba(245,158,11,0.2)", borderRadius: "24px", backdropFilter: "blur(20px)" }}
+          style={{ background: "rgba(9,9,11,0.96)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "24px", backdropFilter: "blur(24px)" }}
         >
-          <div style={{ height: "3px", background: "linear-gradient(90deg,#f59e0b,#f59e0b,#fcd34d)", width: "100%", position: "absolute", top: 0, left: 0 }} />
+          <div style={{ height: "3px", background: "linear-gradient(90deg,#f59e0b,#fbbf24,#f59e0b)", width: "100%", position: "absolute", top: 0, left: 0 }} />
           <div
             className="w-16 h-16 flex items-center justify-center"
             style={{ background: acc.bg, border: `1px solid ${acc.border}`, borderRadius: "16px", boxShadow: `0 0 24px ${acc.glow}` }}
@@ -824,20 +824,20 @@ function NigeriaPaymentModal({
       onClick={onClose}
       style={{ overscrollBehavior: "contain" }}
     >
-      <div className="absolute inset-0 backdrop-blur-md" style={{ background: "rgba(0,0,0,0.75)" }} />
+      <div className="absolute inset-0 backdrop-blur-md" style={{ background: "rgba(0,0,0,0.80)" }} />
       <div
         className="relative w-full max-w-sm overflow-hidden shadow-2xl"
         style={{
-          background: "rgba(14,14,20,0.95)",
-          border: "1px solid rgba(245,158,11,0.2)",
+          background: "rgba(9,9,11,0.96)",
+          border: "1px solid rgba(255,255,255,0.08)",
           borderRadius: "24px",
-          boxShadow: "0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04) inset",
-          backdropFilter: "blur(20px)",
+          boxShadow: "0 32px 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.04) inset",
+          backdropFilter: "blur(24px)",
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Green gradient top bar */}
-        <div style={{ height: "3px", background: "linear-gradient(90deg,#f59e0b,#f59e0b,#fcd34d)", width: "100%" }} />
+        {/* Gold gradient top bar */}
+        <div style={{ height: "3px", background: "linear-gradient(90deg,#f59e0b,#fbbf24,#f59e0b)", width: "100%" }} />
 
         {/* Header */}
         <div className="px-6 pt-5 pb-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
@@ -1096,20 +1096,20 @@ function LockedCard({
         animationFillMode: "forwards",
         borderRadius: "20px",
         overflow: "hidden",
-        background: "#070d1c",
+        background: "#111117",
         border: "1px solid rgba(255,255,255,0.06)",
-        boxShadow: "0 4px 40px rgba(0,0,0,0.4)",
+        boxShadow: "0 4px 32px rgba(0,0,0,0.4)",
         transition: "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
       }}
       onClick={onClickUnlock}
       onMouseEnter={e => {
         (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)";
-        (e.currentTarget as HTMLElement).style.boxShadow = `0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px ${acc.border}`;
+        (e.currentTarget as HTMLElement).style.boxShadow = `0 20px 56px rgba(0,0,0,0.6), 0 0 0 1px ${acc.border}`;
         (e.currentTarget as HTMLElement).style.borderColor = acc.border;
       }}
       onMouseLeave={e => {
         (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-        (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 40px rgba(0,0,0,0.4)";
+        (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 32px rgba(0,0,0,0.4)";
         (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.06)";
       }}
     >
@@ -1131,7 +1131,7 @@ function LockedCard({
           <div
             className="absolute inset-0"
             style={{
-              background: `linear-gradient(145deg, #060c1a 0%, #0a1628 60%, ${acc.bg} 100%)`,
+              background: `linear-gradient(145deg, #09090b 0%, #111117 60%, ${acc.bg} 100%)`,
             }}
           />
         )}
@@ -1149,7 +1149,7 @@ function LockedCard({
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(180deg, rgba(14,14,20,0.2) 0%, rgba(14,14,20,0.7) 70%, rgba(14,14,20,1) 100%)",
+            background: "linear-gradient(180deg, rgba(9,9,11,0.2) 0%, rgba(9,9,11,0.7) 70%, rgba(9,9,11,1) 100%)",
           }}
         />
 
@@ -1176,12 +1176,12 @@ function LockedCard({
             style={{
               width: "64px", height: "64px",
               borderRadius: "20px",
-              background: "rgba(9,9,11,0.8)",
-              backdropFilter: "blur(10px)",
+              background: "rgba(9,9,11,0.85)",
+              backdropFilter: "blur(12px)",
               border: `1px solid ${acc.border}`,
               boxShadow: `0 0 0 0 ${acc.glow}`,
             }}
-            onMouseEnter={e => (e.currentTarget.style.boxShadow = `0 0 0 8px ${acc.glow.replace("0.2)", "0.1)")}, 0 0 30px ${acc.glow}`)}
+            onMouseEnter={e => (e.currentTarget.style.boxShadow = `0 0 0 8px ${acc.glow.replace("0.2)", "0.08)")}, 0 0 24px ${acc.glow}`)}
             onMouseLeave={e => (e.currentTarget.style.boxShadow = `0 0 0 0 ${acc.glow}`)}
           >
             <Lock size={24} style={{ color: acc.text }} strokeWidth={2.5} />
@@ -1262,13 +1262,14 @@ function LockedCard({
         <div
           className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl font-bold text-sm transition-all duration-300"
           style={{
-            background: "linear-gradient(135deg, #f59e0b 0%, #f59e0b 100%)",
-            color: "#0a0500",
+            background: "linear-gradient(135deg, #f59e0b, #d97706)",
+            color: "#ffffff",
             letterSpacing: "0.03em",
             boxShadow: "0 4px 20px rgba(245,158,11,0.0)",
             transition: "box-shadow 0.3s ease",
+            fontFamily: "'Sora', sans-serif",
           }}
-          onMouseEnter={e => ((e.currentTarget as HTMLElement).style.boxShadow = "0 6px 28px rgba(245,158,11,0.45)")}
+          onMouseEnter={e => ((e.currentTarget as HTMLElement).style.boxShadow = "0 6px 28px rgba(245,158,11,0.40)")}
           onMouseLeave={e => ((e.currentTarget as HTMLElement).style.boxShadow = "0 4px 20px rgba(245,158,11,0.0)")}
         >
           <Lock size={14} strokeWidth={2.5} />

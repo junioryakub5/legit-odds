@@ -12,16 +12,14 @@ Premium football predictions platform. Users pay to unlock expert betting tips w
 | Storage | Supabase Storage (`legit-odds-tips` bucket) |
 | Payments | Paystack (Ghana/GHS) |
 | Frontend hosting | Vercel |
-| Backend hosting | VPS — port 8181, nginx on port 8181 |
-| Process manager | PM2 (`legitodds-api`) |
+| Backend hosting | VPS `72.60.23.133` — Node port 5007, nginx port 8181 |
+| Process manager | PM2 (`legit-odds-api`) |
 
 ## Live URLs
 
-- **Production:** https://YOUR_VERCEL_URL.vercel.app
-- **Admin Panel:** https://YOUR_VERCEL_URL.vercel.app/portal
-- **Backend API:** http://YOUR_VPS_IP:8181/api/health
-
-> Replace `YOUR_VERCEL_URL` and `YOUR_VPS_IP` with your actual values once deployed.
+- **Production:** https://legit-odds.vercel.app
+- **Admin Panel:** https://legit-odds.vercel.app/portal
+- **Backend API:** http://72.60.23.133:8181/api/health
 
 ## Local Development
 
@@ -44,28 +42,28 @@ cd frontend && npm run dev
 
 ### Backend (`backend/.env`)
 ```
-PORT=8181
+PORT=5007
 NODE_ENV=production
 PAYSTACK_SECRET_KEY=sk_live_...
 ADMIN_TOKEN=<generated 64-char hex token>
-CLIENT_URL=https://YOUR_VERCEL_URL.vercel.app
-SUPABASE_URL=https://YOUR_SUPABASE_REF.supabase.co
+CLIENT_URL=https://legit-odds.vercel.app
+SUPABASE_URL=https://qkllsheuloboziarfgeq.supabase.co
 SUPABASE_SERVICE_KEY=eyJ...
 SUPABASE_BUCKET=legit-odds-tips
 ```
 
 ### Frontend (`frontend/.env.local`)
 ```
-NEXT_PUBLIC_API_URL=http://YOUR_VPS_IP:8181/api
+NEXT_PUBLIC_API_URL=http://72.60.23.133:8181/api
 NEXT_PUBLIC_PAYSTACK_KEY=pk_live_...
 ```
 
 ## Database Setup
 
-1. Create a new Supabase project at https://supabase.com
-2. Run the SQL in `backend/supabase-schema.sql` in the Supabase SQL Editor
-3. Create a **public** storage bucket named `legit-odds-tips`
-4. Update `backend/.env` with the new `SUPABASE_URL` and `SUPABASE_SERVICE_KEY`
+1. Supabase project **`legit odds`** (`qkllsheuloboziarfgeq`) — already created
+2. Schema already applied — `predictions` and `payments` tables are live
+3. Storage bucket `legit-odds-tips` — already created (public)
+4. `backend/.env` already configured ✅
 
 ## VPS Deployment
 
@@ -91,7 +89,7 @@ pm2 save && pm2 startup
 ```bash
 cd /var/www/legit-odds && git pull
 cd backend && npm install --production
-pm2 restart legitodds-api
+pm2 restart legit-odds-api
 ```
 
 ## Paystack Webhook
@@ -114,7 +112,7 @@ This project runs on the following ports to avoid conflicts:
 
 | Service | Port |
 |---------|------|
-| Node.js backend | 8181 |
+| Node.js backend | 5007 |
 | Nginx proxy | 8181 |
 | Frontend (dev) | 3000 |
 
