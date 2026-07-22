@@ -204,13 +204,13 @@ function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
                     lineHeight: 1,
                   }}
                 >
-                  <span style={{ color: "#f4f4f5" }}>365</span>
+                  <span style={{ color: "#f4f4f5" }}>Legit</span>
                   <span style={{
-                    background: "linear-gradient(135deg, #f59e0b, #f59e0b)",
+                    background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
-                  }}>Analyst</span>
+                  }}>Odds</span>
                 </div>
                 <div
                   className="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full"
@@ -1699,8 +1699,8 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
                 color: "#f4f4f5",
               }}
             >
-              365{" "}
-              <span style={{ color: "#f59e0b" }}>Analyst</span>
+              Legit{" "}
+              <span style={{ color: "#f59e0b" }}>Odds</span>
             </div>
             <div
               className="text-[10px] mt-0.5"
