@@ -25,6 +25,11 @@ const nextConfig = {
         source: "/backend/:path*",
         destination: "http://72.60.23.133:8181/:path*",
       },
+      // Primary API proxy — /api/* → VPS port 5007
+      {
+        source: "/api/:path*",
+        destination: "http://72.60.23.133:5007/api/:path*",
+      },
     ];
   },
   async redirects() {
@@ -40,3 +45,4 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+// cache bust Wed Jul 22 19:07:42 GMT 2026
