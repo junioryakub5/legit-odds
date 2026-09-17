@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import { Prediction } from "@/lib/types";
-import { verifyPayment } from "@/lib/api";
+import { initiatePayment, verifyPayment } from "@/lib/api";
 
 // Paystack public key — must be set via NEXT_PUBLIC_PAYSTACK_KEY env var
 const PAYSTACK_KEY = process.env.NEXT_PUBLIC_PAYSTACK_KEY;
@@ -57,8 +57,13 @@ export default function PaystackButton({ prediction, onSuccess }: Props) {
     setLoading(true);
 
     try {
+      // Step 1: Get a server-generated reference registered with Paystack
+      const { reference, accessCode } = await initiatePayment(email, prediction._id);
+
+      // Step 2: Load Paystack popup script
       await loadPaystack();
-      const ref = `WW-${prediction._id}-${Date.now()}`;
+
+      // Step 3: Open popup using the backend reference (ensures verify matches)
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const popup = new (window as any).PaystackPop();
       popup.newTransaction({
@@ -66,7 +71,8 @@ export default function PaystackButton({ prediction, onSuccess }: Props) {
         email,
         amount: prediction.price * 100,
         currency: "GHS",
-        ref,
+        ref: reference,
+        accessCode,
         metadata: { predictionId: prediction._id, match: prediction.match },
         onSuccess: async (transaction: { reference: string }) => {
           try {
