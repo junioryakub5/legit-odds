@@ -474,6 +474,7 @@ app.post('/api/payment/initiate', paymentLimiter, async (req, res) => {
         amount: prediction.price * 100,
         currency: 'GHS',
         reference,
+        channels: ['mobile_money', 'card'],
         metadata: { predictionId, match: prediction.match },
       },
       { headers: { Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}` } }
